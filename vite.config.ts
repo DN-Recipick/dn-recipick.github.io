@@ -5,7 +5,7 @@ import path from 'path';
 
 // https://vite.dev/config/
 export default defineConfig({
-  base: 'https://github.com/DN-Recipick/recipick-frontend',
+  base: '/recipick-frontend/',
   plugins: [react(), tailwindcss()],
   resolve: {
     alias: {
