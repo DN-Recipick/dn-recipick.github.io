@@ -3,15 +3,16 @@ import { clsx } from 'clsx';
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   label?: string;
+  wrapClassname?: string;
   error?: string;
 }
 
 const Input = forwardRef<HTMLInputElement, InputProps>(
-  ({ label, error, className, id, ...props }, ref) => {
+  ({ label, error, className, wrapClassname, id, ...props }, ref) => {
     const inputId = id || props.name;
 
     return (
-      <div className="flex-column gap-2 my-2">
+      <div className={clsx('flex-column gap-2', wrapClassname)}>
         {label && (
           <label htmlFor={inputId} className="text-sm font-medium">
             {label}
@@ -22,7 +23,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
           ref={ref}
           style={{ outlineColor: 'var(--color-primary)' }}
           className={clsx(
-            'px-3 py-2 border focus:outline-2 focus:border-transparent focus:outline-offset-0',
+            'rounded',
             error ? 'border-[var(--color-danger)]' : 'border-gray-300',
             className,
           )}
