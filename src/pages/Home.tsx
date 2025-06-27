@@ -1,8 +1,14 @@
+import RecipeLinkForm from '@/features/RecipeLink/components/RecipeLinkForm';
+import RecipeLinkHeading from '@/features/RecipeLink/components/RecipeLinkHeading';
+
 const Home = () => {
   return (
-    <>
-      <h2>홈 예시</h2>
-    </>
+    <div className="full-page-center">
+      <div className="max-w-xl w-full">
+        <RecipeLinkHeading />
+        <RecipeLinkForm />
+      </div>
+    </div>
   );
 };
 
