@@ -1,8 +1,8 @@
-import Header from '@/components/ui/Header';
+import Header from '@/components/layout/Header';
 import { useThemeStore } from '@/store/useThemeStore';
 import { Outlet } from 'react-router-dom';
 import { useEffect } from 'react';
-import Footer from '@/components/ui/Footer';
+import Footer from '@/components/layout/Footer';
 
 function App() {
   const initTheme = useThemeStore((state) => state.initTheme);

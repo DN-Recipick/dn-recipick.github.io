@@ -2,7 +2,7 @@ import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import App from './App.tsx';
-import GlobalErrorBoundary from '@/components/common/GlobalErrorBoundary.tsx';
+import GlobalErrorBoundary from '@/components/feedback/GlobalErrorBoundary.tsx';
 import Home from '@/pages/Home.tsx';
 import NotFound from '@/pages/NotFound.tsx';
 import { customQueryClient } from './lib/queryClient';
