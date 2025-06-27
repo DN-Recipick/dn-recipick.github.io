@@ -9,7 +9,7 @@ const ThemeDropdown = () => {
   return (
     <div ref={dropdownRef} className="relative text-sm">
       <Button
-        className="flex-center gap-2.5 p-1.5 rounded-full capitalize bg-hover"
+        className="flex-center gap-2.5 p-1.5 rounded-full capitalize hover:bg-[var(--color-bg-hover)]"
         onClick={() => setOpen((prev) => !prev)}
       >
         {THEME_OPTIONS.find((option) => option.text === theme)?.icon}
@@ -20,7 +20,7 @@ const ThemeDropdown = () => {
           {THEME_OPTIONS.map(({ text, icon }) => (
             <li
               key={text}
-              className="flex items-center gap-2 px-2 py-1.25 w-22 cursor-pointer bg-hover"
+              className="flex items-center gap-2 px-2 py-1.25 w-22 cursor-pointer hover:bg-[var(--color-bg-hover)]"
               onClick={() => setTheme(text)}
             >
               {icon}
