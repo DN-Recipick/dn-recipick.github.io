@@ -7,6 +7,8 @@ const SignupForm = () => {
   return (
     <form onSubmit={onSubmit}>
       <Input
+        wrapClassname="my-2"
+        className="main-input"
         label="이메일"
         error={errors.email?.message}
         type="email"
@@ -14,6 +16,8 @@ const SignupForm = () => {
         required
       />
       <Input
+        wrapClassname="my-2"
+        className="main-input"
         label="비밀번호"
         error={errors.password?.message}
         type="password"
@@ -21,6 +25,8 @@ const SignupForm = () => {
         required
       />
       <Input
+        wrapClassname="my-2"
+        className="main-input"
         label="비밀번호 확인"
         error={errors.passwordCheck?.message}
         type="password"
