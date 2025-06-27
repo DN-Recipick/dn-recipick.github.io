@@ -1,6 +1,7 @@
 :root {
   --color-bg: #f8f9fa;
   --color-sub-bg: #f3f4f6;
+  --color-bg-hover: #f3f4f6;
   --color-btn-bg: #f8f9fa;
   --color-text: #374151;
   --color-primary: #7c83fd;
@@ -18,6 +19,7 @@
 html.dark {
   --color-bg: #13161c;
   --color-sub-bg: #292c31;
+  --color-bg-hover: #364153;
   --color-btn-bg: #4c5270;
   --color-text: #e2e8f0;
   --color-primary: #7c83fd;
