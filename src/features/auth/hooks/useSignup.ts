@@ -1,4 +1,4 @@
-import { signup } from '@/features/apis';
+import { signup } from '@/features/auth/apis';
 import { signupSchema, type SignupForm } from '@/validation/auth.schema';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useMutation } from '@tanstack/react-query';

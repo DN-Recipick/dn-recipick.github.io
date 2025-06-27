@@ -1,4 +1,4 @@
-import { signin } from '@/features/apis';
+import { signin } from '@/features/auth/apis';
 import { signinSchema, type SigninForm } from '@/validation/auth.schema';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useMutation } from '@tanstack/react-query';
