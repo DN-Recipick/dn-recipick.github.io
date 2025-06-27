@@ -1,7 +1,8 @@
 import type { FallbackProps } from 'react-error-boundary';
 import { useNavigate } from 'react-router-dom';
 import { useFallbackStore } from '@/store/useFallbackStore';
-import Button from '@/components/ui/Button';
+import Button from '@/components/shared/Button';
+import { ROUTES } from '@/constants/routes';
 
 const FallbackUI = ({ resetErrorBoundary }: FallbackProps) => {
   const { visible, message, rawMessage, status } = useFallbackStore();
@@ -9,7 +10,7 @@ const FallbackUI = ({ resetErrorBoundary }: FallbackProps) => {
 
   const navigatePage = () => {
     resetErrorBoundary(); // ErrorBoundary 상태 초기화
-    navigate('/'); // 홈으로 이동
+    navigate(ROUTES.HOME); // 홈으로 이동
   };
 
   if (!visible) return null;

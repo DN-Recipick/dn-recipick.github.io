@@ -1,18 +1,18 @@
-import Button from '@/components/ui/Button';
-import ThemeDropdown from '@/components/ui/ThemeDropdown';
+import Button from '@/components/shared/Button';
+import ThemeDropdown from '@/components/layout/ThemeDropdown';
 import { ROUTES } from '@/constants/routes';
 import { useSignout } from '@/features/auth/hooks/useSignout';
 import { useNavigate } from 'react-router-dom';
 import { GoSignOut, GoSignIn, GoPersonAdd } from 'react-icons/go';
+import Logo from '@/assets/logo.svg';
+import Image from '@/components/shared/Image';
 
 const Header = () => {
   const navigate = useNavigate();
   const signout = useSignout();
   return (
     <header className="w-full p-content flex-center-between z-30">
-      <span className="text-3xl cursor-pointer" onClick={() => navigate(ROUTES.HOME)}>
-        Logo
-      </span>
+      <Image src={Logo} onClick={() => navigate(ROUTES.HOME)} wrapClassName="w-12 cursor-pointer" />
       <div className="flex-center gap-2">
         <ThemeDropdown />
         <Button onClick={signout} className="bg-hover rounded p-1.5">

@@ -1,4 +1,4 @@
-import Button from '@/components/ui/Button';
+import Button from '@/components/shared/Button';
 import useDropdown from '@/hooks/useDropdown';
 import { THEME_OPTIONS } from '@/constants/dropdownOptions';
 import { useThemeStore } from '@/store/useThemeStore';

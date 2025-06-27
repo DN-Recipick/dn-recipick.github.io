@@ -1,5 +1,5 @@
-import Button from '@/components/ui/Button';
-import Input from '@/components/ui/Input';
+import Button from '@/components/shared/Button';
+import Input from '@/components/shared/Input';
 import { useSignup } from '@/features/auth/hooks/useSignup';
 
 const SignupForm = () => {
