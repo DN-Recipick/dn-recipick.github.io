@@ -1,13 +1,12 @@
 export const ENDPOINTS = {
   AUTH: {
-    SIGNIN: '/auth/login',
-    SIGNOUT: '/auth/logout',
-    SIGNUP: '/auth/signup',
-    ME: '/auth/me',
+    SIGNIN: '/auth/v1/signin',
+    SIGNUP: '/auth/v1/signup',
   },
-  USERS: {
-    LIST: '/users',
-    DETAIL: (userId: string | number) => `/users/${userId}`,
-    CREATE: '/users',
+  RECIPE: {
+    ADD: '/recipe',
+    LIST: '/recipe',
+    ITEM: (id: string) => `/recipe/${id}`,
   },
+  INGREDIENT: '/ingredient',
 } as const;
