@@ -49,6 +49,7 @@
     "ntvs",
     "njsproj",
     "Recipick",
-    "peaceiris"
+    "peaceiris",
+    "SUPABASE"
   ]
 }
