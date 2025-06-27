@@ -12,10 +12,9 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "predeploy": "pnpm build",
+    "preview": "vite preview",
     "deploy": "gh-pages -d dist",
-    "lint": "eslint .",
-    "preview": "vite preview"
+    "lint": "eslint ."
   },
   "dependencies": {
     "@hookform/resolvers": "^5.1.1",
