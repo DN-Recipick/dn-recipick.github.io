@@ -15,13 +15,19 @@ const Header = () => {
       <Image src={Logo} onClick={() => navigate(ROUTES.HOME)} wrapClassName="w-12 cursor-pointer" />
       <div className="flex-center gap-2">
         <ThemeDropdown />
-        <Button onClick={signout} className="bg-hover rounded p-1.5">
+        <Button onClick={signout} className="hover:bg-[var(--color-bg-hover)] rounded p-1.5">
           <GoSignOut className="mini-icon-size" />
         </Button>
-        <Button onClick={() => navigate(ROUTES.SIGNIN)} className="bg-hover rounded p-1.5">
+        <Button
+          onClick={() => navigate(ROUTES.SIGNIN)}
+          className="hover:bg-[var(--color-bg-hover)] rounded p-1.5"
+        >
           <GoSignIn className="mini-icon-size" />
         </Button>
-        <Button onClick={() => navigate(ROUTES.SIGNUP)} className="bg-hover rounded p-1.5">
+        <Button
+          onClick={() => navigate(ROUTES.SIGNUP)}
+          className="hover:bg-[var(--color-bg-hover)] rounded p-1.5"
+        >
           <GoPersonAdd className="mini-icon-size" />
         </Button>
       </div>
