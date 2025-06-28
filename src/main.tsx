@@ -11,6 +11,8 @@ import { ToastContainer } from 'react-toastify';
 import Signin from '@/features/auth/pages/Signin.tsx';
 import { ROUTES } from '@/constants/routes.ts';
 import Signup from '@/features/auth/pages/Signup.tsx';
+import MyRecipes from '@/features/MyRecipes/pages/MyRecipes.tsx';
+import RecipeDetail from './features/MyRecipes/components/RecipeDetail';
 
 const router = createBrowserRouter([
   {
@@ -18,6 +20,8 @@ const router = createBrowserRouter([
     element: <App />,
     children: [
       { path: '', element: <Home /> },
+      { path: ROUTES.RECIPES, element: <MyRecipes /> },
+      { path: ROUTES.RECIPE_PATH, element: <RecipeDetail /> },
       // {
       //   path: '/fallback',
       //   element: (
