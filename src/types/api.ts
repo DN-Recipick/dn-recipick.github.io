@@ -1,3 +1,4 @@
+import type { SignupForm } from '@/validation/auth.schema';
 export type HttpMethod = 'GET' | 'POST' | 'PUT' | 'PATCH' | 'DELETE';
 
 export interface FetcherOptions extends Omit<RequestInit, 'method' | 'body'> {
@@ -18,3 +19,12 @@ export interface CustomError {
   message?: string;
   rawMessage?: string;
 }
+export interface SigninResponse {
+  access_token: string;
+  user: {
+    id: string;
+    email: string;
+  };
+}
+
+export type SignupPayload = Pick<SignupForm, 'email' | 'password'>;
