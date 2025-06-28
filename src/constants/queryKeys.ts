@@ -6,4 +6,7 @@ export const queryKeys = {
     all: ['users'],
     detail: (id: string | number) => ['users', id],
   },
+  RECIPE: {
+    all: ['recipes'],
+  },
 } as const;
