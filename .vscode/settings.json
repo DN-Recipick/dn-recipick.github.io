@@ -50,6 +50,7 @@
     "njsproj",
     "Recipick",
     "peaceiris",
-    "SUPABASE"
+    "SUPABASE",
+    "apikey"
   ]
 }
