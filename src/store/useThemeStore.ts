@@ -1,14 +1,13 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
-import type { Theme } from '@/types/ui';
 
 interface ThemeState {
-  theme: Theme;
-  setTheme: (theme: Theme) => void;
+  theme: string;
+  setTheme: (theme: string) => void;
   initTheme: () => void;
 }
 
-const applyThemeToDOM = (theme: Theme) => {
+const applyThemeToDOM = (theme: string) => {
   const isDark =
     theme === 'dark' ||
     (theme === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches);
