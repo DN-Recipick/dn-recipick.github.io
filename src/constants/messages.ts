@@ -13,3 +13,27 @@ export const ERROR_MESSAGES: Record<number, string> = {
 };
 
 export const DEFAULT_ERROR_MESSAGE = '오류가 발생했습니다 잠시 후 다시 시도해주세요';
+
+export const SUCCESS_MESSAGES = {
+  auth: {
+    login: '로그인에 성공했습니다',
+    logout: '로그아웃되었습니다',
+    signup: '회원가입이 완료되었습니다',
+  },
+  user: {
+    update: '회원 정보가 수정되었습니다',
+    delete: '회원 탈퇴가 완료되었습니다',
+  },
+  form: {
+    submit: '성공적으로 제출되었습니다',
+    save: '저장이 완료되었습니다',
+    send: '전송이 완료되었습니다',
+  },
+  recipe: {
+    link: '레시피가 성공적으로 등록되었습니다',
+    delete: '레시피가 삭제되었습니다',
+  },
+  common: {
+    success: '요청이 성공적으로 처리되었습니다',
+  },
+};
