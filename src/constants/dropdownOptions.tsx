@@ -1,13 +1,13 @@
 import { LuSun, LuMoon, LuMonitor } from 'react-icons/lu';
 import React from 'react';
-import type { Theme } from '@/types/ui';
 
-export type ThemeOptions = {
-  text: Theme;
-  icon: React.ReactNode;
+export type DropdownOptions = {
+  text: string;
+  icon?: React.ReactNode;
+  [key: string]: unknown;
 };
 
-export const THEME_OPTIONS: ThemeOptions[] = [
+export const THEME_OPTIONS: DropdownOptions[] = [
   {
     text: 'light',
     icon: <LuSun className={'mini-icon-size fill-yellow-400'} />,
@@ -19,5 +19,14 @@ export const THEME_OPTIONS: ThemeOptions[] = [
   {
     text: 'system',
     icon: <LuMonitor className={'mini-icon-size not-first:fill-slate-500'} />,
+  },
+];
+
+export const USER_OPTIONS: DropdownOptions[] = [
+  {
+    text: '내정보',
+  },
+  {
+    text: '로그아웃',
   },
 ];
