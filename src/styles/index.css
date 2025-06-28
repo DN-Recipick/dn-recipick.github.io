@@ -42,7 +42,7 @@
     @apply antialiased;
   }
   #root {
-    @apply min-h-screen mx-auto flex flex-col items-center max-w-4xl;
+    @apply min-h-screen mx-auto flex flex-col items-center max-w-6xl;
   }
   input:-webkit-autofill {
     box-shadow: inset 0 0 0 1000px var(--color-input-bg) !important;
@@ -51,16 +51,17 @@
     @apply px-3 py-2 hover:bg-[var(--color-bg-hover)];
   }
   h1 {
-    @apply text-2xl sm:text-3xl md:text-4xl font-bold mb-5;
+    @apply text-3xl md:text-4xl font-bold mb-7;
   }
 
   h2 {
-    @apply text-xl sm:text-2xl md:text-3xl font-bold mb-5;
+    @apply text-2xl md:text-3xl font-bold mb-7;
   }
 
   h3 {
-    @apply text-lg sm:text-xl md:text-2xl font-bold mb-4;
+    @apply text-xl md:text-2xl font-bold mb-4;
   }
+
   a {
     color: inherit;
     text-decoration: none;
@@ -73,6 +74,9 @@
   }
   button {
     @apply cursor-pointer;
+  }
+  li {
+    list-style: none;
   }
   ul,
   ol {
@@ -91,6 +95,9 @@
   .main-input {
     @apply bg-white dark:bg-gray-800 border focus:outline-2 focus:border-transparent focus:outline-offset-0;
   }
+  .dropdown-item {
+    @apply flex items-center gap-2 px-2 py-1.5 w-22 cursor-pointer hover:bg-[var(--color-bg-hover)] text-sm;
+  }
 }
 
 @layer utilities {
@@ -108,7 +115,7 @@
     @apply flex items-center justify-center;
   }
   .layout-max-w {
-    @apply max-w-4xl;
+    @apply max-w-5xl;
   }
   .hover-opacity {
     @apply hover:opacity-80;
