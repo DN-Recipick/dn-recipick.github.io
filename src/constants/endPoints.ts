@@ -1,6 +1,6 @@
 export const ENDPOINTS = {
   AUTH: {
-    SIGNIN: '/auth/v1/signin',
+    SIGNIN: '/auth/v1/token?grant_type=password',
     SIGNUP: '/auth/v1/signup',
   },
   RECIPE: {
