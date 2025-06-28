@@ -19,12 +19,13 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
           </label>
         )}
         <input
+          autoComplete="off"
           id={inputId}
           ref={ref}
           style={{ outlineColor: 'var(--color-primary)' }}
           className={clsx(
             'rounded',
-            error ? 'border-[var(--color-danger)]' : 'border-gray-300',
+            error ? 'border-[var(--color-danger)] focus:outline-0' : 'border-gray-300',
             className,
           )}
           {...props}
