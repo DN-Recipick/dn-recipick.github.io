@@ -1,46 +1,56 @@
-name: Deploy to GitHub Pages
+name: Deploy static content to Pages
 
 on:
   push:
-    branches:
-      - main
+    branches: ['main']
+  workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: 'pages'
+  cancel-in-progress: true
 
 jobs:
-  build-and-deploy:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
+      - name: Checkout
+        uses: actions/checkout@v4
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
+      - name: Set up Node
+        uses: actions/setup-node@v4
         with:
-          node-version: 18
-
-      - name: Install pnpm
-        run: npm install -g pnpm
+          node-version: lts/*
+          cache: 'npm'
 
       - name: Install dependencies
-        run: pnpm install
+        run: npm ci
 
-      - name: Create .env file from GitHub Secrets
+      # ✅ GitHub Secrets → .env 파일 생성
+      - name: Create .env file from secrets
         run: |
-          echo "VITE_API_SUPABASE=${{ secrets.VITE_API_SUPABASE }}" > $GITHUB_WORKSPACE/.env
-          echo "VITE_API_SUPABASE_KEY=${{ secrets.VITE_API_SUPABASE_KEY }}" >> $GITHUB_WORKSPACE/.env
-          echo "VITE_DEFAULT_TIMEOUT=${{ secrets.VITE_DEFAULT_TIMEOUT }}" >> $GITHUB_WORKSPACE/.env
-
-      - name: Debug .env content
-        run: cat $GITHUB_WORKSPACE/.env
+          echo "VITE_API_SUPABASE=${{ secrets.VITE_API_SUPABASE }}" > .env
+          echo "VITE_API_SUPABASE_KEY=${{ secrets.VITE_API_SUPABASE_KEY }}" >> .env
+          echo "VITE_DEFAULT_TIMEOUT=${{ secrets.VITE_DEFAULT_TIMEOUT }}" >> .env
 
       - name: Build
-        run: pnpm build
+        run: npm run build
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: './dist'
 
       - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist
+        id: deployment
+        uses: actions/deploy-pages@v4
