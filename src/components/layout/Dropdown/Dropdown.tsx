@@ -14,7 +14,7 @@ const Dropdown = ({ buttonInner, dropdownList }: DropdownProps) => {
   return (
     <div ref={dropdownRef} className="relative text-sm">
       <Button
-        className="flex-center gap-2.5 p-1.5 rounded-full capitalize hover:bg-[var(--color-bg-hover)]"
+        className="gap-2.5 capitalize btn-icon"
         onClick={(e) => {
           e.stopPropagation();
           setOpen((prev) => !prev);
