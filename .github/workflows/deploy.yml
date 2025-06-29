@@ -29,9 +29,9 @@ jobs:
 
       - name: Create .env file from GitHub Secrets
         run: |
-          echo "VITE_API_SUPABASE=${{ secrets.VITE_API_SUPABASE }}" >> .env
-          echo "VITE_API_SUPABASE_KEY=${{ secrets.VITE_API_SUPABASE_KEY }}" >> .env
-          echo "VITE_DEFAULT_TIMEOUT=${{ secrets.VITE_DEFAULT_TIMEOUT }}" >> .env
+          echo "VITE_API_SUPABASE=${{ secrets.VITE_API_SUPABASE }}" > $GITHUB_WORKSPACE/.env
+          echo "VITE_API_SUPABASE_KEY=${{ secrets.VITE_API_SUPABASE_KEY }}" >> $GITHUB_WORKSPACE/.env
+          echo "VITE_DEFAULT_TIMEOUT=${{ secrets.VITE_DEFAULT_TIMEOUT }}" >> $GITHUB_WORKSPACE/.env
 
       - name: Build
         run: pnpm build
