@@ -6,7 +6,10 @@ import useGetRecipes from '@/features/MyRecipes/hooks/useGetRecipes';
 import { useNavigate } from 'react-router-dom';
 
 const MyRecipes = () => {
+  const navigate = useNavigate();
   // const { data, isPending } = useGetRecipes();
+  // console.log(data);
+
   // if (isPending) return <FullScreenLoader />;
   const recipes = {
     recipes: [
@@ -129,7 +132,7 @@ const MyRecipes = () => {
     ],
     count: 4,
   };
-  const navigate = useNavigate();
+
   return (
     <>
       <div className="flex justify-between items-start gap-5">
