@@ -1,3 +1,4 @@
+import YoutubeVideo from '@/components/shared/YoutubeVideo';
 import { ROUTES } from '@/constants/routes';
 import type { Recipe } from '@/types/recipe';
 import { formatDateTime } from '@/utils/format';
@@ -9,13 +10,9 @@ const RecipeItem = ({ recipe }: { recipe: Recipe }) => {
     <article
       className="h-full cursor-pointer bg-white dark:bg-gray-800 rounded-lg overflow-hidden shadow-[var(--shadow)] flex-column
             transition-transform duration-200 hover:scale-[1.02] hover:shadow-lg"
-      onClick={() =>
-        navigate(ROUTES.RECIPE(recipe.id), {
-          state: { recipe },
-        })
-      }
+      onClick={() => navigate(ROUTES.RECIPE(recipe.id))}
     >
-      <div className="bg-amber-900 h-35" />
+      <YoutubeVideo className="h-35" id={recipe.video_id} />
       <div className="p-3 flex-1 flex-column justify-between">
         <h3 className="text-lg font-extrabold line-clamp-2">{recipe.name}</h3>
         <div className="flex-column gap-2">
