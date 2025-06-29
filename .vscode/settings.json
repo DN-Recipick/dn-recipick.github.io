@@ -51,6 +51,7 @@
     "Recipick",
     "peaceiris",
     "SUPABASE",
-    "apikey"
+    "apikey",
+    "kurly"
   ]
 }
