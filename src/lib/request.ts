@@ -1,4 +1,5 @@
 import { CustomError } from '@/lib/errors';
+import { buildUrl } from '@/lib/utils';
 import type { HttpMethod, FetcherOptions } from '@/types/api';
 
 const API_SUPABASE = import.meta.env.VITE_API_SUPABASE;
@@ -12,11 +13,13 @@ async function request<T>(
   options: FetcherOptions = {},
 ): Promise<T> {
   const {
+    baseURL = API_SUPABASE,
     timeout = DEFAULT_TIMEOUT || 5000,
     headers = {},
-    baseURL = API_SUPABASE,
+    queryParams,
     ...rest
   } = options;
+
   const controller = new AbortController();
 
   const apiKeyHeader: Record<string, string> =
@@ -37,7 +40,8 @@ async function request<T>(
   const timeoutId = setTimeout(() => controller.abort(), timeout);
 
   try {
-    const res = await fetch(`${baseURL}${endpoint}`, fetchOptions);
+    const url = buildUrl(baseURL, endpoint, queryParams);
+    const res = await fetch(url, fetchOptions);
 
     if (!res.ok) {
       const errorBody = await res.json().catch(() => ({}));
