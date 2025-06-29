@@ -33,6 +33,9 @@ jobs:
           echo "VITE_API_SUPABASE_KEY=${{ secrets.VITE_API_SUPABASE_KEY }}" >> $GITHUB_WORKSPACE/.env
           echo "VITE_DEFAULT_TIMEOUT=${{ secrets.VITE_DEFAULT_TIMEOUT }}" >> $GITHUB_WORKSPACE/.env
 
+      - name: Debug .env content
+        run: cat $GITHUB_WORKSPACE/.env
+
       - name: Build
         run: pnpm build
 
