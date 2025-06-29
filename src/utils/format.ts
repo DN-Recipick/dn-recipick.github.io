@@ -10,3 +10,4 @@ export const formatDateTime = (isoString: string) => {
     hour12: false,
   }).format(date);
 };
+export const formatNumber = (price: string | number): string => Number(price).toLocaleString();
