@@ -5,7 +5,7 @@ import Image from '@/components/shared/Image';
 import { useAuthStore } from '@/store/useAuthStore';
 import Button from '@/components/shared/Button';
 import Dropdown from '@/components/layout/Dropdown/Dropdown';
-import { THEME_OPTIONS, USER_OPTIONS } from '@/constants/dropdownOptions';
+import { USER_OPTIONS } from '@/constants/dropdownOptions';
 import { useThemeStore } from '@/store/useThemeStore';
 import { FaUserAlt } from 'react-icons/fa';
 import DropdownList from '@/components/layout/Dropdown/DropdownList';
@@ -15,35 +15,16 @@ import DropdownItems from '@/components/layout/Dropdown/RenderDropdownItems';
 const Header = () => {
   const { isSignin } = useAuthStore();
   const navigate = useNavigate();
-  const { theme, setTheme } = useThemeStore();
   const handleSignout = useSignout();
 
   return (
     <header className="w-full p-content flex-center-between z-30">
-      <div className="flex-center gap-2">
-        <Image
-          src={Logo}
-          onClick={() => navigate(ROUTES.HOME)}
-          wrapClassName="w-12 cursor-pointer"
-        />
-        <Dropdown
-          buttonInner={THEME_OPTIONS.find((o) => o.text === theme)?.icon}
-          dropdownList={({ setOpen }) => (
-            <DropdownList listPosition="right">
-              <DropdownItems
-                options={THEME_OPTIONS}
-                setOpen={setOpen}
-                onSelect={(option) => setTheme(option.text)}
-              />
-            </DropdownList>
-          )}
-        />
-      </div>
+      <Image src={Logo} onClick={() => navigate(ROUTES.HOME)} wrapClassName="w-12 cursor-pointer" />
       {isSignin ? (
         <Dropdown
           buttonInner={<FaUserAlt />}
           dropdownList={({ setOpen }) => (
-            <DropdownList listPosition="left">
+            <DropdownList className="right-0">
               <DropdownItems
                 options={USER_OPTIONS}
                 setOpen={setOpen}
