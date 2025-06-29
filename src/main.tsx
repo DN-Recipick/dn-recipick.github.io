@@ -12,7 +12,7 @@ import Signin from '@/features/auth/pages/Signin.tsx';
 import { ROUTES } from '@/constants/routes.ts';
 import Signup from '@/features/auth/pages/Signup.tsx';
 import MyRecipes from '@/features/MyRecipes/pages/MyRecipes.tsx';
-import RecipeDetail from './features/MyRecipes/components/RecipeDetail';
+import RecipeDetail from './features/MyRecipeDetail/pages/RecipeDetail.tsx';
 
 const router = createBrowserRouter([
   {
