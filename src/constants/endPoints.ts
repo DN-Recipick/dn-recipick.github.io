@@ -4,8 +4,8 @@ export const ENDPOINTS = {
     SIGNUP: '/auth/v1/signup',
   },
   RECIPE: {
-    ADD: '/recipe',
-    LIST: '/recipe',
+    ADD: '/functions/v1/recipe',
+    LIST: '/functions/v1/recipe',
     ITEM: (id: string) => `/recipe/${id}`,
   },
   INGREDIENT: '/ingredient',
