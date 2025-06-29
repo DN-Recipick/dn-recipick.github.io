@@ -9,4 +9,5 @@ export const queryKeys = {
   RECIPE: {
     all: ['recipes'],
   },
+  KURLY_ITEM: (keyword: string) => ['kurly', keyword],
 } as const;
