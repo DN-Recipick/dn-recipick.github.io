@@ -2,6 +2,7 @@ import type { SignupForm } from '@/validation/auth.schema';
 export type HttpMethod = 'GET' | 'POST' | 'PUT' | 'PATCH' | 'DELETE';
 
 export interface FetcherOptions extends Omit<RequestInit, 'method' | 'body'> {
+  queryParams?: Record<string, string | number | boolean | undefined>;
   timeout?: number;
   headers?: HeadersInit;
   baseURL?: string;
