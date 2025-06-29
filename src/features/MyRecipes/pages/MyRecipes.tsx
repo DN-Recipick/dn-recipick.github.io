@@ -3,10 +3,9 @@ import Button from '@/components/shared/Button';
 import { ROUTES } from '@/constants/routes';
 import RecipeItem from '@/features/MyRecipes/components/RecipeItem';
 import useGetRecipes from '@/features/MyRecipes/hooks/useGetRecipes';
-import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const MyRecipes = () => {
-  const navigate = useNavigate();
   // const { data, isPending } = useGetRecipes();
   // console.log(data);
 
@@ -137,7 +136,9 @@ const MyRecipes = () => {
     <>
       <div className="flex justify-between items-start gap-5">
         <h2>내 레시피</h2>
-        <Button className="btn-primary" text="레시피 추가" onClick={() => navigate(ROUTES.HOME)} />
+        <Link to={ROUTES.HOME}>
+          <Button className="btn-primary" text="레시피 추가" />
+        </Link>
       </div>
       <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 items-stretch">
         {recipes.recipes?.map((recipe) => (
