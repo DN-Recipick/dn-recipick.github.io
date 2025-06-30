@@ -1,43 +1,29 @@
 import { CustomError } from '@/lib/errors';
-import { buildUrl } from '@/lib/utils';
-import type { HttpMethod, FetcherOptions } from '@/types/api';
+import { buildFetchOptions, buildUrl, getUnknownErrorMessage, parseResponse } from '@/lib/utils';
+import type { RequestConfig } from '@/types/api';
 
 const API_SUPABASE = import.meta.env.VITE_API_SUPABASE;
-const API_SUPABASE_KEY = import.meta.env.VITE_API_SUPABASE_KEY;
-const DEFAULT_TIMEOUT = import.meta.env.VITE_DEFAULT_TIMEOUT;
+const DEFAULT_TIMEOUT = Number(import.meta.env.VITE_DEFAULT_TIMEOUT) || 5000;
 
-async function request<T>(
-  method: HttpMethod,
-  endpoint: string,
-  data: unknown,
-  options: FetcherOptions = {},
-): Promise<T> {
+async function request<T>({ method, endpoint, data, options = {} }: RequestConfig): Promise<T> {
   const {
     baseURL = API_SUPABASE,
-    timeout = DEFAULT_TIMEOUT || 5000,
-    headers = {},
+    timeout = DEFAULT_TIMEOUT,
     queryParams,
-    ...rest
+    responseType,
+    signal: externalSignal,
   } = options;
 
   const controller = new AbortController();
-
-  const fetchOptions: RequestInit = {
-    method,
-    headers: {
-      'Content-Type': 'application/json',
-      ...headers,
-    },
-    signal: controller.signal,
-    ...rest,
-    ...(method !== 'GET' && data !== undefined && { body: JSON.stringify(data) }),
-  };
-
   const timeoutId = setTimeout(() => controller.abort(), timeout);
+  const signal = externalSignal ?? controller.signal;
 
   try {
     const url = buildUrl(baseURL, endpoint, queryParams);
-    const res = await fetch(url, fetchOptions);
+    const res = await fetch(url, {
+      ...buildFetchOptions({ method, data, options }),
+      signal,
+    });
 
     if (!res.ok) {
       const errorBody = await res.json().catch(() => ({}));
@@ -46,11 +32,14 @@ async function request<T>(
       throw new CustomError(res.status, rawMessage);
     }
 
-    return await res.json();
+    return await parseResponse(res, responseType);
   } catch (err: unknown) {
     if (err instanceof CustomError) throw err;
-    // 여기에 들어오는 건 대부분 fetch 자체가 실패한 경우
-    throw new CustomError(500, '네트워크 에러 또는 알 수 없는 에러');
+
+    const rawMessage = getUnknownErrorMessage(err);
+    console.error('Fetch Error:', rawMessage);
+
+    throw new CustomError(500, rawMessage);
   } finally {
     clearTimeout(timeoutId);
   }
