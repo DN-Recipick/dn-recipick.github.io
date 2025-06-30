@@ -1,4 +1,3 @@
-import type { SignupForm } from '@/validation/auth.schema';
 export type HttpMethod = 'GET' | 'POST' | 'PUT' | 'PATCH' | 'DELETE';
 
 export interface FetcherOptions extends Omit<RequestInit, 'method' | 'body'> {
@@ -6,7 +5,22 @@ export interface FetcherOptions extends Omit<RequestInit, 'method' | 'body'> {
   timeout?: number;
   headers?: HeadersInit;
   baseURL?: string;
+  withAuth?: boolean;
+  withApikey?: boolean;
+  responseType?: ResponseType;
+  signal?: AbortSignal;
+  //retry?: number;
+  cache?: 'no-cache' | 'force-cache';
 }
+
+export interface RequestConfig {
+  method: HttpMethod;
+  endpoint: string;
+  data?: unknown;
+  options?: FetcherOptions;
+}
+
+export type ResponseType = 'json' | 'blob' | 'text';
 
 export interface HttpClient {
   get: <T = unknown>(endpoint: string, options?: FetcherOptions) => Promise<T>;
@@ -15,17 +29,8 @@ export interface HttpClient {
   patch: <T = unknown>(endpoint: string, data?: unknown, options?: FetcherOptions) => Promise<T>;
   delete: <T = unknown>(endpoint: string, data?: unknown, options?: FetcherOptions) => Promise<T>;
 }
-export interface CustomError {
+export interface CustomErrorType {
   status: number;
   message?: string;
   rawMessage?: string;
 }
-export interface SigninResponse {
-  access_token: string;
-  user: {
-    id: string;
-    email: string;
-  };
-}
-
-export type SignupPayload = Pick<SignupForm, 'email' | 'password'>;
