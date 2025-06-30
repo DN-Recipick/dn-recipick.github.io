@@ -9,7 +9,7 @@ const DEFAULT_TIMEOUT = import.meta.env.VITE_DEFAULT_TIMEOUT;
 async function request<T>(
   method: HttpMethod,
   endpoint: string,
-  data?: unknown,
+  data: unknown,
   options: FetcherOptions = {},
 ): Promise<T> {
   const {
@@ -22,14 +22,10 @@ async function request<T>(
 
   const controller = new AbortController();
 
-  const apiKeyHeader: Record<string, string> =
-    baseURL === API_SUPABASE ? { apikey: API_SUPABASE_KEY } : {};
-
   const fetchOptions: RequestInit = {
     method,
     headers: {
       'Content-Type': 'application/json',
-      ...apiKeyHeader,
       ...headers,
     },
     signal: controller.signal,
