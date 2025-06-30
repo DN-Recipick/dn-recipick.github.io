@@ -4,7 +4,7 @@
   --color-bg-hover: #f3f4f6;
   --color-btn-bg: #f8f9fa;
   --color-text: #374151;
-  --color-primary: #7c83fd;
+  --color-primary: #36a193;
 
   --color-secondary: #38bdf8; /* sky-400 */
   --color-accent: #f97316; /* orange-500 */
@@ -22,7 +22,7 @@ html.dark {
   --color-bg-hover: #364153;
   --color-btn-bg: #4c5270;
   --color-text: #e2e8f0;
-  --color-primary: #7c83fd;
+  --color-primary: #36a193cc;
   --color-input-bg: #1f2937;
 
   --color-secondary: #0ea5e9; /* sky-500 */
