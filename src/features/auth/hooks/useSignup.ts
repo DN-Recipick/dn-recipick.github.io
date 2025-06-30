@@ -1,9 +1,9 @@
 import { SUCCESS_MESSAGES } from '@/constants/messages';
 import { ROUTES } from '@/constants/routes';
 import { signup } from '@/features/auth/apis';
-import type { SignupPayload } from '@/types/api';
+import type { SignupPayload, SignupFormType } from '@/types/auth';
 import { showToast } from '@/utils/toast';
-import { signupSchema, type SignupForm } from '@/validation/auth.schema';
+import { signupSchema } from '@/validation/auth.schema';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useMutation } from '@tanstack/react-query';
 import { useForm } from 'react-hook-form';
@@ -15,7 +15,7 @@ export const useSignup = () => {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<SignupForm>({
+  } = useForm<SignupFormType>({
     defaultValues: {
       email: '',
       password: '',
