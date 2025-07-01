@@ -12,7 +12,6 @@
   "files.autoSave": "onWindowChange",
   "files.exclude": {
     "**/.DS_Store": true,
-    "**/dist": true,
     "**/.next": true
   },
 
