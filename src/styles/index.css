@@ -3,12 +3,12 @@
 @import './variables.css';
 
 @layer base {
-  @font-face {
+  /* @font-face {
     font-family: 'Pretendard';
     src: url('../assets/fonts/Pretendard-Regular.woff2') format('woff2');
     font-weight: 100 900;
     font-display: swap;
-  }
+  } */
   /* 카카오 큰글씨 */
   @font-face {
     font-family: 'KakaoBigSans-ExtraBold';
@@ -34,7 +34,7 @@
   html {
     color-scheme: light dark;
     scroll-behavior: smooth;
-    font-family: 'Pretendard', sans-serif;
+    font-family: 'KakaoSmallSans-Bold', sans-serif;
   }
   body {
     background-color: var(--color-bg);
@@ -101,6 +101,9 @@
   .dropdown-item {
     @apply flex items-center gap-2 px-2 py-1.5 w-22 cursor-pointer hover:bg-[var(--color-bg-hover)] text-sm;
   }
+  .recipe-item-wrap {
+    @apply h-full rounded-lg overflow-hidden shadow-[var(--shadow)] flex flex-col;
+  }
 }
 
 @layer utilities {
@@ -118,7 +121,9 @@
   .animate-fade-in-up {
     animation: fade-in-up 0.3s ease-out forwards;
   }
-  /* 유틸리티 클래스 정의 우선 순위 가장 낮음*/
+  .skeleton-bg {
+    @apply bg-gray-300 dark:bg-gray-700;
+  }
   .flex-column {
     @apply flex flex-col;
   }
