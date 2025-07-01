@@ -4,7 +4,7 @@ import { useQuery } from '@tanstack/react-query';
 
 const useGetRecipeItem = (id: string) => {
   const { data: recipeItem, isPending } = useQuery({
-    queryKey: queryKeys.KURLY_ITEM(id),
+    queryKey: queryKeys.RECIPE.item(id),
     queryFn: () => getRecipeItem(id),
     enabled: !!id,
   });
