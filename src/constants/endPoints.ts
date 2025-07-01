@@ -6,7 +6,7 @@ export const ENDPOINTS = {
   RECIPE: {
     ADD: '/functions/v1/recipe',
     LIST: '/functions/v1/recipe',
-    ITEM: (id: string) => `/recipe/${id}`,
+    ITEM: (id: string) => `/functions/v1/recipe/${id}`,
   },
   INGREDIENT: '/ingredient',
 } as const;
