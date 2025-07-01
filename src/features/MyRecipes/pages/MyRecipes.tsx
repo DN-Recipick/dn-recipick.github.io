@@ -1,16 +1,18 @@
-import FullScreenLoader from '@/components/feedback/FullScreenLoader';
+import SkeletonRecipeItem from '@/components/feedback/Skeleton/SkeletonRecipeItem';
 import Button from '@/components/shared/Button';
 import { ROUTES } from '@/constants/routes';
-import RecipeItem from '@/features/MyRecipes/components/RecipeItem';
+import RecipeList from '@/features/MyRecipes/components/RecipeList';
+import RecipeItem from '@/features/MyRecipes/components/RecipeList';
 import useGetRecipes from '@/features/MyRecipes/hooks/useGetRecipes';
 import { Link } from 'react-router-dom';
 
 const MyRecipes = () => {
-  // const { data, isPending } = useGetRecipes();
-  // console.log(data);
+  const {
+    //data,
+    isPending,
+  } = useGetRecipes();
 
-  // if (isPending) return <FullScreenLoader />;
-  const recipes = {
+  const data = {
     recipes: [
       {
         id: 'd38b54cd-3c13-4eb0-9ad1-b8101b83a4e9',
@@ -22,7 +24,7 @@ const MyRecipes = () => {
         ],
         name: '목데이터 레시피이름',
         state: 1,
-        title: '목데이터 영상제목asdddddddddddddddddddddddddddddd',
+        title: '목데이터 영상제목',
         channel: '목데이터 영상채널',
         video_id: 'yy5IetkEZWI',
         ingredients: [
@@ -131,7 +133,6 @@ const MyRecipes = () => {
     ],
     count: 4,
   };
-
   return (
     <>
       <div className="flex justify-between items-start gap-5">
@@ -140,13 +141,7 @@ const MyRecipes = () => {
           <Button className="btn-primary" text="레시피 추가" />
         </Link>
       </div>
-      <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 items-stretch">
-        {recipes.recipes?.map((recipe) => (
-          <li key={recipe.id} className="h-full">
-            <RecipeItem recipe={recipe} />
-          </li>
-        ))}
-      </ul>
+      <RecipeList isPending={isPending} recipes={data?.recipes} />
     </>
   );
 };
