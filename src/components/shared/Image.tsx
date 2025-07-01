@@ -9,7 +9,11 @@ interface ImageProps extends React.ImgHTMLAttributes<HTMLImageElement> {
 const Image = ({ wrapClassName, imgClassName, className, ...rest }: ImageProps) => {
   return (
     <div className={clsx('relative overflow-hidden', wrapClassName)}>
-      <img className={clsx('w-full h-auto', imgClassName, className)} loading="lazy" {...rest} />
+      <img
+        className={clsx('w-full h-full object-cover', imgClassName, className)}
+        loading="lazy"
+        {...rest}
+      />
     </div>
   );
 };
