@@ -1,7 +1,7 @@
 import FullScreenLoader from '@/components/feedback/FullScreenLoader';
 import Button from '@/components/shared/Button';
 import Image from '@/components/shared/Image';
-import { KURLY_ITEM_URL } from '@/constants/Link';
+import { KURLY_ITEM_URL } from '@/constants/externalUrl';
 import { useGetKurlyItem } from '@/features/MyRecipeDetail/hooks/useGetKurlyItem';
 import { formatNumber } from '@/utils/format';
 
