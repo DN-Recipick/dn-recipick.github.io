@@ -2,7 +2,10 @@ import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import App from './App.tsx';
-import GlobalErrorBoundary from '@/components/feedback/GlobalErrorBoundary.tsx';
+import {
+  RootErrorBoundary as GlobalErrorBoundary,
+  RootErrorBoundary as AppErrorBoundary,
+} from '@/components/feedback/RootErrorBoundary.tsx';
 import Home from '@/pages/Home.tsx';
 import NotFound from '@/pages/NotFound.tsx';
 import { customQueryClient } from './lib/queryClient';
@@ -17,12 +20,15 @@ import RecipeDetail from './features/MyRecipeDetail/pages/RecipeDetail.tsx';
 const router = createBrowserRouter([
   {
     path: ROUTES.HOME,
-    element: <App />,
+    element: (
+      <AppErrorBoundary>
+        <App />
+      </AppErrorBoundary>
+    ),
     children: [
       { path: '', element: <Home /> },
       { path: ROUTES.RECIPES, element: <MyRecipes /> },
       { path: ROUTES.RECIPE_PATH, element: <RecipeDetail /> },
-      // {
       //   path: '/fallback',
       //   element: (
       //     <FallbackUI
