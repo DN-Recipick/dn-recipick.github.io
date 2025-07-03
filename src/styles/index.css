@@ -137,7 +137,7 @@
     @apply flex items-center justify-center;
   }
   .layout-max-w {
-    @apply max-w-5xl;
+    @apply max-w-3xl;
   }
   .hover-opacity {
     @apply hover:opacity-80;
@@ -147,6 +147,9 @@
   }
   .px-content {
     @apply px-3.75;
+  }
+  .mx-content {
+    @apply mx-3.75;
   }
   .mini-icon-size {
     @apply w-4 h-4;
