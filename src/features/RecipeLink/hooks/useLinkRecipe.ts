@@ -14,6 +14,9 @@ export const useLinkRecipe = () => {
     formState: { errors },
   } = useForm<RecipeLink>({
     resolver: zodResolver(recipeLinkScheme),
+    defaultValues: {
+      url: '',
+    },
   });
 
   const { isPending, mutate } = useMutation({
