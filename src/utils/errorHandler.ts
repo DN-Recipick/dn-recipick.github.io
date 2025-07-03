@@ -1,17 +1,25 @@
-import { CustomError } from '@/lib/errors';
+import { CustomError } from '@/lib/CustomError';
 import { showToast } from '@/utils/toast';
 import { useFallbackStore } from '@/store/useFallbackStore';
+import { resetAuthState } from '@/utils/auth';
+import { ROUTES } from '@/constants/routes';
 
 export const handleAppError = (error: unknown) => {
   const { show } = useFallbackStore.getState();
 
   if (!(error instanceof CustomError)) {
-    return show('알 수 없는 에러가 발생했습니다. 잠시 후 다시 시도해주세요.');
+    throw error;
   }
 
   const { status, message, rawMessage } = error;
 
-  if (!status || status >= 500 || status === 401) {
+  if (status === 401) {
+    resetAuthState();
+    window.location.href = ROUTES.SIGNIN;
+    return;
+  }
+
+  if (!status || status >= 500) {
     return show(message, rawMessage, status);
   }
 
