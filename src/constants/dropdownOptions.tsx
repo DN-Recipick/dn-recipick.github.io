@@ -1,32 +1,33 @@
 import { LuSun, LuMoon, LuMonitor } from 'react-icons/lu';
 import React from 'react';
+import { useSignout } from '@/features/auth/hooks/useSignout';
 
 export type DropdownOptions = {
   text: string;
+  label: string;
   icon?: React.ReactNode;
-  [key: string]: unknown;
 };
-
 export const THEME_OPTIONS: DropdownOptions[] = [
   {
-    text: 'light',
+    text: 'Light',
+    label: 'light',
     icon: <LuSun className={'mini-icon-size fill-yellow-400'} />,
   },
   {
-    text: 'dark',
+    text: 'Dark',
+    label: 'dark',
     icon: <LuMoon className={'mini-icon-size fill-neutral-500'} />,
   },
   {
-    text: 'system',
+    text: 'System',
+    label: 'system',
     icon: <LuMonitor className={'mini-icon-size not-first:fill-slate-500'} />,
   },
 ];
 
 export const USER_OPTIONS: DropdownOptions[] = [
   {
-    text: '내정보',
-  },
-  {
     text: '로그아웃',
+    label: 'sign-out',
   },
 ];
