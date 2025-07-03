@@ -1,6 +1,5 @@
 import EmptyState from '@/components/feedback/EmptyState';
 import SkeletonRecipeItem from '@/components/feedback/Skeleton/SkeletonRecipeItem';
-import YoutubeVideo from '@/components/shared/YoutubeVideo';
 import { ROUTES } from '@/constants/routes';
 import type { Recipe } from '@/types/recipe';
 import { formatDateTime } from '@/utils/format';
@@ -22,7 +21,7 @@ const RecipeList = ({
       {isPending
         ? Array.from({ length: 6 }).map((_, idx) => <SkeletonRecipeItem key={idx} />)
         : recipes?.map((recipe) => (
-            <li className="h-full">
+            <li className="h-full" key={recipe.id}>
               <article
                 className="recipe-item-wrap transition-transform duration-200 hover:scale-[1.02] hover:shadow-lg cursor-pointer bg-white dark:bg-gray-800"
                 onClick={() => navigate(ROUTES.RECIPE(recipe.id))}
