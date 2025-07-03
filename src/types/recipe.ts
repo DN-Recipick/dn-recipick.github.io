@@ -15,8 +15,8 @@ export interface Recipe {
   saved_at: string;
 }
 
-export interface RecipeItemResponse extends Recipe {
-  create_at: string;
+export interface RecipeItemResponse extends Omit<Recipe, 'saved_at'> {
+  created_at: string;
 }
 export interface RecipeListResponse {
   recipes: Recipe[];
