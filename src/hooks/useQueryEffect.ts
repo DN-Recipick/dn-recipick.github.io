@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import type { UseQueryResult } from '@tanstack/react-query';
-import { CustomError } from '@/lib/errors';
+import { CustomError } from '@/lib/CustomError';
 import { handleAppError } from '@/utils/errorHandler';
 
 interface UseQueryEffectOptions<T> {
