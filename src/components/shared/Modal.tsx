@@ -14,18 +14,22 @@ const Modal = () => {
   return createPortal(
     <div className="fixed inset-0 z-50 flex-center bg-black/50" onClick={close}>
       <div
-        className="bg-white dark:bg-gray-800 py-3 px-5 rounded-md shadow-xl max-w-xl w-full min-h-1/2 
-              transition-all duration-300 transform -translate-y-5 opacity-0 max-h-[80vh] overflow-y-auto
+        className="bg-white dark:bg-gray-800 rounded-md shadow-xl max-w-xl w-full min-h-[18.75rem] max-h-[80vh] 
+              transition-all duration-300 transform -translate-y-5 opacity-0
               animate-fade-in-up relative"
         onClick={(e) => e.stopPropagation()}
       >
-        <h3 className="text-center h-15 content-center">{data?.title}</h3>
-        <Button onClick={close} className="btn-icon text-gray-500 absolute right-2 top-2">
-          <HiX className="text-2xl" />
-        </Button>
-        {type === 'ingredient' && (
-          <IngredientDetail ingredientKeyword={data?.ingredientKeyword as string} />
-        )}
+        <div className="sticky top-0 p-3 shadow-[var(--shadow)]">
+          <h3 className="text-center h-15 content-center mb-0">{data?.title}</h3>
+          <Button onClick={close} className="btn-icon text-gray-500 absolute right-2 top-2">
+            <HiX className="text-2xl" />
+          </Button>
+        </div>
+        <div className="max-h-[65vh] overflow-y-auto px-content">
+          {type === 'ingredient' && (
+            <IngredientDetail ingredientKeyword={data?.ingredientKeyword as string} />
+          )}
+        </div>
       </div>
     </div>,
     document.body,
