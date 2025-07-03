@@ -28,7 +28,7 @@ export const useSignup = () => {
   const { isPending, mutate } = useMutation({
     mutationFn: (formData: SignupPayload) => signup(formData),
     onSuccess: () => {
-      showToast.success(SUCCESS_MESSAGES.auth.login);
+      showToast.success(SUCCESS_MESSAGES.auth.signup);
       navigate(ROUTES.SIGNIN);
     },
   });
