@@ -8,7 +8,7 @@ const RecipeLinkForm = () => {
   return (
     <form
       onSubmit={onSubmit}
-      className="p-2 my-5 flex-column justify-between border-[0.1rem] border-[var(--color-primary)] shadow-[var(--shadow)] min-h-25 rounded-md"
+      className="p-2 my-3 flex-column justify-between border-[0.1rem] border-[var(--color-primary)] shadow-[var(--shadow)] min-h-25 rounded-md"
     >
       <Input
         {...register('url')}
