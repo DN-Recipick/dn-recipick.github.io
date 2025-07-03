@@ -11,9 +11,9 @@ const MyRecipes = () => {
     <>
       <h2>내 레시피</h2>
       <RecipeList isPending={isPending} recipes={data?.recipes} />
-      <div className="fixed bottom-23 w-full layout-max-w px-4 left-1/2 -translate-x-1/2 z-50 flex justify-end">
+      <div className="fixed bottom-23 w-full layout-max-w px-content left-1/2 -translate-x-1/2 z-10 flex justify-end">
         <Link to={ROUTES.HOME}>
-          <Button className="btn-primary w-14 h-14 rounded-full opacity-80 hover:opacity-100 transition-opacity duration-200">
+          <Button className="btn-primary w-14 h-14 rounded-full opacity-90 hover:opacity-100 transition-opacity duration-200">
             <FaPlus />
           </Button>
         </Link>
