@@ -1,4 +1,4 @@
-import { CustomError } from '@/lib/errors';
+import { CustomError } from '@/lib/CustomError';
 import { buildFetchOptions, buildUrl, getUnknownErrorMessage, parseResponse } from '@/lib/utils';
 import type { RequestConfig } from '@/types/api';
 
