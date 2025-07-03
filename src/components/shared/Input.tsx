@@ -24,13 +24,13 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
           ref={ref}
           style={{ outlineColor: 'var(--color-primary)' }}
           className={clsx(
-            'rounded',
-            error ? 'border-[var(--color-danger)] focus:outline-0' : 'border-gray-300',
+            'rounded focus:border-transparent',
+            error ? 'border-[var(--color-danger)]' : 'border-gray-300',
             className,
           )}
           {...props}
         />
-        {<p className="danger">{error}</p>}
+        {<p className="text-[var(--color-danger)] text-xs sm:text-[0.8rem]">{error}</p>}
       </div>
     );
   },
