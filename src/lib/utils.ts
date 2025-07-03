@@ -1,5 +1,5 @@
 import { ERROR_MESSAGES, DEFAULT_ERROR_MESSAGE } from '@/constants/messages';
-import { CustomError } from '@/lib/errors';
+import { CustomError } from '@/lib/CustomError';
 import type { ResponseType } from '@/types/api';
 import type { ErrorStatusCode } from '@/types/error';
 import { getAuthHeaders } from '@/utils/auth';
