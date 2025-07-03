@@ -33,7 +33,7 @@ export const useSignin = () => {
       localStorage.setItem('token', res?.access_token);
       setUser(res.user);
       queryClient.clear();
-      showToast.success(SUCCESS_MESSAGES.auth.login);
+      showToast.success(SUCCESS_MESSAGES.auth.signin);
       navigate(ROUTES.HOME);
     },
   });
