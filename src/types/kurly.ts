@@ -1,8 +1,8 @@
 export interface KurlyItem {
-  no: number;
+  no: string;
   name: string;
   imageUrl: string;
-  price: number;
+  price: string;
 }
 export interface KurlyItemResponse {
   result: KurlyItem[];
