@@ -1,20 +1,25 @@
-import type { DropdownListProps } from '@/components/layout/Dropdown/DropdownList';
 import Button from '@/components/shared/Button';
 import useDropdown from '@/hooks/useDropdown';
-import type { ReactElement, ReactNode } from 'react';
+import clsx from 'clsx';
+import type { ReactNode } from 'react';
 
 interface DropdownProps {
   buttonInner: string | ReactNode;
-  dropdownList: (helpers: { setOpen: (v: boolean) => void }) => ReactElement<DropdownListProps>;
+  children: ReactNode;
+  dropdownListClassName?: string;
 }
 
-const Dropdown = ({ buttonInner, dropdownList }: DropdownProps) => {
+const Dropdown = ({
+  buttonInner,
+  children: dropdownListChildren,
+  dropdownListClassName,
+}: DropdownProps) => {
   const { isOpen, setOpen, dropdownRef } = useDropdown<HTMLDivElement>();
 
   return (
     <div ref={dropdownRef} className="relative text-sm">
       <Button
-        className="gap-2.5 capitalize btn-icon"
+        className="gap-2.5 btn-icon"
         onClick={(e) => {
           e.stopPropagation();
           setOpen((prev) => !prev);
@@ -23,7 +28,16 @@ const Dropdown = ({ buttonInner, dropdownList }: DropdownProps) => {
         {buttonInner}
       </Button>
 
-      {isOpen && dropdownList({ setOpen })}
+      {isOpen && (
+        <ul
+          className={clsx(
+            dropdownListClassName,
+            'absolute overflow-hidden bg-white dark:bg-gray-800 mt-2 border border-gray-600 shadow-[var(--shadow)] rounded z-10',
+          )}
+        >
+          {dropdownListChildren}
+        </ul>
+      )}
     </div>
   );
 };
