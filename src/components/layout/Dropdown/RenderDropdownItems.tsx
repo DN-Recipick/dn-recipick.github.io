@@ -1,24 +1,27 @@
 import type { DropdownOptions } from '@/constants/dropdownOptions';
+import useDropdown from '@/hooks/useDropdown';
+import clsx from 'clsx';
 import type { ReactNode } from 'react';
 
 interface DropdownItemsProps {
   options: DropdownOptions[];
   onSelect?: (option: DropdownOptions) => void;
-  setOpen: (v: boolean) => void;
+  className?: string;
 }
 
-const DropdownItems = ({ options, onSelect, setOpen }: DropdownItemsProps): ReactNode => {
+const DropdownItems = ({ options, onSelect, className }: DropdownItemsProps): ReactNode => {
+  const { setOpen } = useDropdown();
   return options.map((option) => (
     <li
       key={option.text}
-      className="dropdown-item"
+      className={clsx('dropdown-item', className)}
       onClick={() => {
         onSelect?.(option);
         setOpen(false);
       }}
     >
       {option.icon}
-      <span className="flex-1 text-center capitalize">{option.text}</span>
+      <span className="flex-1 text-center">{option.text}</span>
     </li>
   ));
 };
