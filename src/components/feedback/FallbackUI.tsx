@@ -1,25 +1,26 @@
 import type { FallbackProps } from 'react-error-boundary';
-import { useNavigate } from 'react-router-dom';
 import { useFallbackStore } from '@/store/useFallbackStore';
 import Button from '@/components/shared/Button';
 import { ROUTES } from '@/constants/routes';
-
-const FallbackUI = ({ resetErrorBoundary }: FallbackProps) => {
+import { CustomError } from '@/lib/CustomError';
+//렌더링 오류는 상태로 관리하지 않는다
+const FallbackUI = (props?: Partial<FallbackProps>) => {
   const { visible, message, rawMessage, status } = useFallbackStore();
-  const navigate = useNavigate();
 
   const navigatePage = () => {
-    resetErrorBoundary(); // ErrorBoundary 상태 초기화
-    navigate(ROUTES.HOME); // 홈으로 이동
+    props?.resetErrorBoundary?.(); // ErrorBoundary 상태 초기화
+    window.location.href = ROUTES.HOME;
   };
 
-  if (!visible) return null;
+  const isRenderingError = !(props?.error instanceof CustomError);
+
+  if (!visible && !isRenderingError) return null;
 
   return (
     <div className="full-page-center">
-      <h1>{status}</h1>
-      <p>{message}</p>
-      <p className="danger">{rawMessage}</p>
+      <h1>{status ?? 500}</h1>
+      <p>{isRenderingError ? '렌더링 에러 발생' : message}</p>
+      <p className="text-[var(--color-danger)]">{rawMessage}</p>
       <Button text="홈으로 돌아가기" onClick={navigatePage} className="btn-primary" />
     </div>
   );
