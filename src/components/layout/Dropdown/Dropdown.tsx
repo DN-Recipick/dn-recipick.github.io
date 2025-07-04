@@ -4,13 +4,14 @@ import clsx from 'clsx';
 import type { ReactNode } from 'react';
 
 interface DropdownProps {
-  buttonInner: string | ReactNode;
+  icon?: ReactNode;
+  text?: string;
   children: ReactNode;
   dropdownListClassName?: string;
 }
 
 const Dropdown = ({
-  buttonInner,
+  icon,
   children: dropdownListChildren,
   dropdownListClassName,
 }: DropdownProps) => {
@@ -24,9 +25,8 @@ const Dropdown = ({
           e.stopPropagation();
           setOpen((prev) => !prev);
         }}
-      >
-        {buttonInner}
-      </Button>
+        icon={icon}
+      />
 
       {isOpen && (
         <ul
