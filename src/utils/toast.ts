@@ -7,7 +7,6 @@ const options: ToastOptions = {
   closeOnClick: true,
   pauseOnHover: true,
   draggable: false,
-  theme: 'light',
 };
 
 export const showToast = {
