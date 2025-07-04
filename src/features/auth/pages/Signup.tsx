@@ -1,11 +1,11 @@
-import AuthLayout from '@/features/auth/AuthLayout';
+import PageLayout from '@/components/shared/PageLayout';
 import SignupForm from '@/features/auth/components/SignupForm';
 
 const Signup = () => {
   return (
-    <AuthLayout title="회원가입">
+    <PageLayout title="회원가입">
       <SignupForm />
-    </AuthLayout>
+    </PageLayout>
   );
 };
 

@@ -10,6 +10,7 @@ const SigninForm = () => {
       <Input
         wrapClassname="my-3"
         className="main-input"
+        placeholder="이메일 주소를 입력하세요"
         label="이메일"
         error={errors.email?.message}
         type="email"
@@ -18,6 +19,7 @@ const SigninForm = () => {
       />
       <Input
         wrapClassname="my-3"
+        placeholder="6자 이상 입력하세요"
         className="main-input"
         label="비밀번호"
         error={errors.password?.message}
@@ -25,9 +27,7 @@ const SigninForm = () => {
         {...register('password')}
         required
       />
-      <Button type="submit" isPending={isPending} className="btn-primary w-full">
-        로그인
-      </Button>
+      <Button text="로그인" type="submit" isPending={isPending} className="btn-primary w-full" />
     </form>
   );
 };
