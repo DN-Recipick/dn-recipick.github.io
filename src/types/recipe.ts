@@ -12,7 +12,8 @@ export interface Recipe {
   channel: string;
   video_id: string;
   ingredients: Ingredient[];
-  saved_at: string;
+  saved_at?: string;
+  created_at?: string;
 }
 
 export interface RecipeItemResponse extends Omit<Recipe, 'saved_at'> {
@@ -21,4 +22,11 @@ export interface RecipeItemResponse extends Omit<Recipe, 'saved_at'> {
 export interface RecipeListResponse {
   recipes: Recipe[];
   count: number;
+}
+
+export interface RecommendedRecipesResponse {
+  recommends: {
+    by_menu: RecipeItemResponse[];
+    by_ingredients: RecipeItemResponse[];
+  };
 }
