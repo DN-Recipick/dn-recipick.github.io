@@ -3,7 +3,7 @@ import clsx from 'clsx';
 
 const YoutubeVideo = ({ id, className }: { id: string; className?: string }) => {
   return (
-    <div className={clsx(className, 'aspect-video rounded-md overflow-hidden')}>
+    <div className={clsx(className, 'aspect-video rounded-2xl overflow-hidden')}>
       <iframe
         className="w-full h-full"
         src={YOUTUBE_IFRAME(id)}

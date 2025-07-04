@@ -15,7 +15,7 @@ const Modal = () => {
   return createPortal(
     <div className="fixed inset-0 z-50 flex-center bg-black/50" onClick={close}>
       <div
-        className="bg-white dark:bg-gray-800 rounded-md shadow-xl max-w-2xl w-full min-h-[18.75rem] max-h-[80vh] 
+        className="bg-white dark:bg-gray-800 rounded-md shadow-xl max-w-3xl w-full min-h-[18.75rem] max-h-[80vh] 
               transition-all duration-300 transform -translate-y-5 opacity-0
               animate-fade-in-up relative"
         onClick={(e) => e.stopPropagation()}
