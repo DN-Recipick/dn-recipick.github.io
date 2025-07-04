@@ -51,6 +51,7 @@
     "peaceiris",
     "SUPABASE",
     "apikey",
-    "kurly"
+    "kurly",
+    "Toastify"
   ]
 }
