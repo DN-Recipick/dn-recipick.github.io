@@ -1,16 +1,18 @@
 :root {
   --color-bg: #f8f9fa;
   --color-sub-bg: #f3f4f6;
-  --color-bg-hover: #f3f4f6;
+  --color-bg-hover: #eceef1;
   --color-btn-bg: #f8f9fa;
+  --color-list-item-bg: #ffffff;
   --color-text: #374151;
   --color-primary: #36a193;
+  --color-toast-bg: #fff;
 
   --color-secondary: #38bdf8; /* sky-400 */
   --color-accent: #f97316; /* orange-500 */
   --color-success: #10b981; /* emerald-500 */
   --color-warning: #facc15; /* yellow-400 */
-  --color-danger: #ef4444;
+  --color-danger: #dc2626;
   --color-input-bg: #fff; /* red-500 */
 
   --shadow: 0 1px 2px rgba(0, 0, 0, 0.05), 0 2px 4px rgba(0, 0, 0, 0.06);
@@ -21,15 +23,17 @@ html.dark {
   --color-sub-bg: #292c31;
   --color-bg-hover: #364153;
   --color-btn-bg: #4c5270;
+  --color-list-item-bg: #34394e;
   --color-text: #e2e8f0;
   --color-primary: #36a193cc;
+  --color-toast-bg: #1f2937;
   --color-input-bg: #1f2937;
 
   --color-secondary: #0ea5e9; /* sky-500 */
   --color-accent: #fb923c; /* orange-400 */
   --color-success: #34d399; /* emerald-400 */
   --color-warning: #fde047; /* yellow-300 */
-  --color-danger: #f87171; /* red-400 */
+  --color-danger: #fca5a5; /* red-400 */
 
   --shadow: none;
 }
