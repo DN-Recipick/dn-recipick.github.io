@@ -1,6 +1,6 @@
 import { create } from 'zustand';
 
-export type ModalType = 'ingredient' | null;
+export type ModalType = 'ingredient' | 'relatedRecipes' | null;
 
 interface ModalData {
   title: string;
