@@ -47,6 +47,7 @@ jobs:
           echo "VITE_API_SUPABASE=${{ secrets.VITE_API_SUPABASE }}" > .env
           echo "VITE_API_SUPABASE_KEY=${{ secrets.VITE_API_SUPABASE_KEY }}" >> .env
           echo "VITE_DEFAULT_TIMEOUT=${{ secrets.VITE_DEFAULT_TIMEOUT }}" >> .env
+          echo "VITE_USE_MOCK=${{ secrets.VITE_USE_MOCK }}" >> .env
 
       - name: Build project
         run: pnpm build
