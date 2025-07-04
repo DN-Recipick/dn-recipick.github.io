@@ -6,27 +6,30 @@ import type { Ingredient } from '@/types/recipe';
 const Ingredients = ({ ingredients }: { ingredients: Ingredient[] }) => {
   const { open } = useModalStore();
   return (
-    <>
-      <SectionLayout title="재료">
-        <ul className="flex-1 space-y-3">
-          {ingredients.map(({ name, amount }) => (
-            <li key={name} className="flex justify-between items-center border-b pb-1">
-              <span className="text-base font-medium ">{name}</span>
-              <div className="flex-center-between gap-3">
-                <span className="text-sm ">{amount}</span>
-                <Button
-                  className="btn-primary"
-                  text="컬리에서 구매"
-                  onClick={() =>
-                    open('ingredient', { title: '컬리에서 구매', ingredientKeyword: name })
-                  }
-                />
-              </div>
-            </li>
-          ))}
-        </ul>
-      </SectionLayout>
-    </>
+    <SectionLayout title="재료">
+      <ul className="flex-column gap-3">
+        {ingredients.map(({ name, amount }) => (
+          <li
+            key={name}
+            className="flex-center-between px-4 py-3 rounded-lg bg-white dark:bg-gray-800 shadow-[var(--shadow)] border border-gray-100 dark:border-gray-700"
+          >
+            <div>
+              <p>{name}</p>
+              {amount && (
+                <p className="text-sm text-gray-500 dark:text-gray-400 mt-0.5">{amount}</p>
+              )}
+            </div>
+            <Button
+              className="btn-kurly"
+              text="컬리에서 구매"
+              onClick={() =>
+                open('ingredient', { title: '컬리에서 구매', ingredientKeyword: name })
+              }
+            />
+          </li>
+        ))}
+      </ul>
+    </SectionLayout>
   );
 };
 
