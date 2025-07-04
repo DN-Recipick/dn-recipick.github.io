@@ -23,7 +23,7 @@ const IngredientDetail = ({ ingredientKeyword }: { ingredientKeyword: string }) 
                 </div>
               </div>
               <a href={KURLY_ITEM_URL(kurlyItem.no)} target="_blank" rel="noopener noreferrer">
-                <Button text="구매" className="btn-primary w-full sm:w-auto mt-3 sm:mt-0" />
+                <Button text="구매" className="btn-kurly w-full sm:w-auto mt-3 sm:mt-0" />
               </a>
             </article>
           </li>
