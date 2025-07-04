@@ -93,6 +93,9 @@
   .btn-primary {
     @apply bg-[var(--color-primary)] rounded text-white px-3.5 py-2;
   }
+  .btn-kurly {
+    @apply bg-[var(--color-kurly)] rounded text-white px-3.5 py-2;
+  }
   .btn-icon {
     @apply hover:bg-[var(--color-bg-hover)] p-1.75 rounded-full;
   }
@@ -154,5 +157,8 @@
   }
   .py-content {
     @apply py-4;
+  }
+  .date-text {
+    @apply text-gray-500 font-sans font-bold;
   }
 }

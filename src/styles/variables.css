@@ -3,6 +3,7 @@
   --color-sub-bg: #f3f4f6;
   --color-bg-hover: #eceef1;
   --color-btn-bg: #f8f9fa;
+  --color-kurly: #9046cf;
   --color-list-item-bg: #ffffff;
   --color-text: #374151;
   --color-primary: #36a193;
@@ -23,6 +24,7 @@ html.dark {
   --color-sub-bg: #292c31;
   --color-bg-hover: #364153;
   --color-btn-bg: #4c5270;
+  --color-kurly: #5f0080;
   --color-list-item-bg: #34394e;
   --color-text: #e2e8f0;
   --color-primary: #36a193cc;
