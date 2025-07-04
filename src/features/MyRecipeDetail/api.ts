@@ -1,7 +1,7 @@
 import { ENDPOINTS } from '@/constants/endPoints';
 import httpClient from '@/lib/httpClient';
 import type { KurlyItemResponse } from '@/types/kurly';
-import type { RecipeItemResponse } from '@/types/recipe';
+import type { RecipeItemResponse, RecommendedRecipesResponse } from '@/types/recipe';
 const USE_MOCK = import.meta.env.VITE_USE_MOCK === 'true';
 
 const mockRecipeItem: RecipeItemResponse = {
@@ -75,6 +75,16 @@ export const getRecipeItem = (id: string): Promise<RecipeItemResponse> => {
   }
 
   return httpClient.get(ENDPOINTS.RECIPE.ITEM(id), {
+    withAuth: true,
+  });
+};
+
+export const getRecommendedRecipes = (id: string): Promise<RecommendedRecipesResponse> => {
+  // if (USE_MOCK) {
+  //   return new Promise((resolve) => setTimeout(() => resolve(mockRecipeItem), 300));
+  // }
+
+  return httpClient.get(ENDPOINTS.RECIPE.RECOMMENDED(id), {
     withAuth: true,
   });
 };
