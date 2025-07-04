@@ -17,9 +17,12 @@ const RecipeLinkForm = () => {
         placeholder="유튜브 영상 링크 입력"
       />
       <div className="flex flex-row-reverse">
-        <Button type="submit" isPending={isPending} className="btn-primary rounded-md">
-          <FaArrowRight className="text-[0.9rem]" />
-        </Button>
+        <Button
+          icon={<FaArrowRight className="text-[0.9rem]" />}
+          type="submit"
+          isPending={isPending}
+          className="btn-primary rounded-md"
+        />
       </div>
     </form>
   );
