@@ -14,7 +14,7 @@ const RecipeLinkForm = () => {
         {...register('url')}
         error={errors.url?.message}
         className="focus:outline-0"
-        placeholder="유튜브 영상 링크 입력"
+        placeholder="https:// 유튜브 영상 링크를 입력하세요"
       />
       <div className="flex flex-row-reverse">
         <Button
