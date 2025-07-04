@@ -12,7 +12,7 @@ const Footer = () => {
       </small>
       <Dropdown
         dropdownListClassName="bottom-8 right-0"
-        buttonInner={THEME_OPTIONS.find((o) => o.label === theme)?.icon}
+        icon={THEME_OPTIONS.find((o) => o.label === theme)?.icon}
       >
         <DropdownItems options={THEME_OPTIONS} onSelect={(option) => setTheme(option.label)} />
       </Dropdown>
