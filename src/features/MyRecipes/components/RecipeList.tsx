@@ -3,7 +3,7 @@ import type { Recipe } from '@/types/recipe';
 import RecipeItem from '@/features/MyRecipes/components/RecipeItem';
 import { ErrorBoundary as ItemErrorBoundary } from 'react-error-boundary';
 import { RecipeItemFallback } from '@/components/feedback/fallback/ItemFallback';
-import SkeletonRecipeItem from '@/components/feedback/skeleton/SkeletonRecipeItem';
+import SkeletonRecipeItem from '@/components/feedback/skeleton/temp';
 
 const RecipeList = ({
   recipes,
