@@ -8,6 +8,7 @@ export const queryKeys = {
   },
   RECIPE: {
     all: ['recipes'],
+    recommended: (id: string) => ['recommendedRecipes', id],
     item: (id: string) => ['recipes', id],
   },
   KURLY_ITEM: (keyword: string) => ['kurly', keyword],
