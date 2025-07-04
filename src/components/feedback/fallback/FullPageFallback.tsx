@@ -4,7 +4,7 @@ import Button from '@/components/shared/Button';
 import { ROUTES } from '@/constants/routes';
 import { CustomError } from '@/lib/CustomError';
 //렌더링 오류는 상태로 관리하지 않는다
-const FallbackUI = (props?: Partial<FallbackProps>) => {
+const FullPageFallback = (props?: Partial<FallbackProps>) => {
   const { visible, message, rawMessage, status } = useFallbackStore();
 
   const navigatePage = () => {
@@ -26,4 +26,4 @@ const FallbackUI = (props?: Partial<FallbackProps>) => {
   );
 };
 
-export default FallbackUI;
+export default FullPageFallback;
