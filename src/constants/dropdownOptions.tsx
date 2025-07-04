@@ -1,6 +1,5 @@
 import { LuSun, LuMoon, LuMonitor } from 'react-icons/lu';
 import React from 'react';
-import { useSignout } from '@/features/auth/hooks/useSignout';
 
 export type DropdownOptions = {
   text: string;
