@@ -4,9 +4,10 @@ import { clsx } from 'clsx';
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   text?: string;
   isPending?: boolean;
+  icon?: React.ReactNode;
 }
 
-export default function Button({ text, children, isPending, className, ...rest }: ButtonProps) {
+export default function Button({ text, icon, isPending, className, ...rest }: ButtonProps) {
   return (
     <button
       className={clsx(
@@ -20,7 +21,7 @@ export default function Button({ text, children, isPending, className, ...rest }
         <Spinner />
       ) : (
         <>
-          {children}
+          {icon}
           {text}
         </>
       )}
