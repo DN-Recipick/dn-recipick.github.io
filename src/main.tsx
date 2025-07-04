@@ -3,9 +3,9 @@ import { createRoot } from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import App from './App.tsx';
 import {
-  RootErrorBoundary as GlobalErrorBoundary,
-  RootErrorBoundary as AppErrorBoundary,
-} from '@/components/feedback/RootErrorBoundary.tsx';
+  ErrorBoundary as RootErrorBoundary,
+  ErrorBoundary as AppErrorBoundary,
+} from 'react-error-boundary';
 import Home from '@/pages/Home.tsx';
 import NotFound from '@/pages/NotFound.tsx';
 import { customQueryClient } from './lib/queryClient';
@@ -16,18 +16,20 @@ import { ROUTES } from '@/constants/routes.ts';
 import Signup from '@/features/auth/pages/Signup.tsx';
 import MyRecipes from '@/features/MyRecipes/pages/MyRecipes.tsx';
 import RecipeDetail from './features/MyRecipeDetail/pages/RecipeDetail.tsx';
+import FullPageFallback from '@/components/feedback/fallback/FullPageFallback.tsx';
 
 const router = createBrowserRouter([
   {
     path: ROUTES.HOME,
     element: (
-      <AppErrorBoundary>
+      <AppErrorBoundary FallbackComponent={FullPageFallback}>
         <App />
       </AppErrorBoundary>
     ),
     children: [
       { path: '', element: <Home /> },
       { path: ROUTES.RECIPES, element: <MyRecipes /> },
+      { path: ROUTES.SHARE_RECIPE, element: <MyRecipes /> },
       { path: ROUTES.RECIPE_PATH, element: <RecipeDetail /> },
       //   path: '/fallback',
       //   element: (
@@ -49,11 +51,11 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <GlobalErrorBoundary>
+    <RootErrorBoundary FallbackComponent={FullPageFallback}>
       <QueryClientProvider client={customQueryClient}>
         <RouterProvider router={router} />
         <ToastContainer />
       </QueryClientProvider>
-    </GlobalErrorBoundary>
+    </RootErrorBoundary>
   </StrictMode>,
 );
