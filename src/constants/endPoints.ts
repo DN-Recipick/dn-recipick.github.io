@@ -6,6 +6,7 @@ export const ENDPOINTS = {
   RECIPE: {
     ADD: '/functions/v1/recipe',
     LIST: '/functions/v1/recipe',
+    RECOMMENDED: (id: string) => `/functions/v1/recommend/${id}`,
     ITEM: (id: string) => `/functions/v1/recipe/${id}`,
   },
   INGREDIENT: '/ingredient',
