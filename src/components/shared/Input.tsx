@@ -13,11 +13,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
 
     return (
       <div className={clsx('flex-column gap-2', wrapClassname)}>
-        {label && (
-          <label htmlFor={inputId} className="text-sm font-medium">
-            {label}
-          </label>
-        )}
+        {label && <label htmlFor={inputId}>{label}</label>}
         <input
           autoComplete="off"
           id={inputId}
