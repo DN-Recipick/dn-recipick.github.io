@@ -9,6 +9,7 @@ import YoutubeVideo from '@/components/shared/YoutubeVideo';
 import Button from '@/components/shared/Button';
 import { useModalStore } from '@/store/useModalStore';
 import PageLayout from '@/components/shared/PageLayout';
+import ChannelInfo from '@/features/MyRecipeDetail/components/ChannelInfo';
 
 const RecipeDetail = () => {
   const { open } = useModalStore();
@@ -17,17 +18,17 @@ const RecipeDetail = () => {
 
   if (!id) return <Navigate to={ROUTES.NOT_FOUND} />;
   if (isPending || !recipeItem) return <FullScreenLoader />;
+
   return (
-    <PageLayout title={recipeItem?.name}>
-      <p>{formatDateTime(recipeItem?.created_at)}</p>
+    <PageLayout title={recipeItem.name}>
+      <p className="date-text mb-3">저장일 : {formatDateTime(recipeItem.created_at)}</p>
       <YoutubeVideo id={recipeItem.video_id} />
-      <h3 className="mt-5">{recipeItem?.title}</h3>
-      <p>{recipeItem?.channel}</p>
-      <RecipeProcedure procedure={recipeItem?.item} />
-      <Ingredients ingredients={recipeItem?.ingredients} />
+      <ChannelInfo channelName={recipeItem.channel} channelTitle={recipeItem.title} />
+      <RecipeProcedure procedure={recipeItem.item} />
+      <Ingredients ingredients={recipeItem.ingredients} />
       <Button
         text="추천 레시피"
-        className="btn-primary"
+        className="btn-primary w-full mt-1"
         onClick={() => open('relatedRecipes', { title: '추천 레시피', id: recipeItem.id })}
       />
     </PageLayout>

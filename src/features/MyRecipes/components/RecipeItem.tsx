@@ -18,8 +18,8 @@ const RecipeItem = ({ recipe }: { recipe: Recipe }) => {
         <h3 className="text-lg font-extrabold line-clamp-2">{recipe.name}</h3>
         <div className="flex-column gap-2">
           <p className="font-bold line-clamp-2">{recipe.title}</p>
-          <p className="text-sm font-bold text-gray-400 line-clamp-1">{recipe.channel}</p>
-          <p className="text-sm text-gray-400 font-sans font-bold">
+          <p className="text-sm font-bold text-gray-500 line-clamp-1">{recipe.channel}</p>
+          <p className="date-text text-sm">
             {formatDateTime(recipe.saved_at ?? recipe.created_at)}
           </p>
         </div>
