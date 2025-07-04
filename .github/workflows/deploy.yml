@@ -36,11 +36,11 @@ jobs:
           node-version: lts/*
           cache: 'pnpm'
 
-      - name: Install dependencies
-        run: pnpm install
-
       - name: Clean project before build
         run: rm -rf dist node_modules
+
+      - name: Install dependencies
+        run: pnpm install
 
       - name: Create .env file from GitHub Secrets
         run: |
