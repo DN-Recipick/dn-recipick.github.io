@@ -1,4 +1,4 @@
-import FullScreenLoader from '@/components/feedback/FullScreenLoader';
+import FullScreenLoader from '@/components/feedback/loading/FullScreenLoader';
 import Button from '@/components/shared/Button';
 import Image from '@/components/shared/Image';
 import { KURLY_ITEM_URL } from '@/constants/externalUrl';
