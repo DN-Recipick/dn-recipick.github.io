@@ -1,5 +1,5 @@
 import FullScreenLoader from '@/components/feedback/loading/FullScreenLoader';
-import Button from '@/components/shared/Button';
+import ALink from '@/components/shared/ALink';
 import Image from '@/components/shared/Image';
 import { KURLY_ITEM_URL } from '@/constants/externalUrl';
 import { useGetKurlyItem } from '@/features/MyRecipeDetail/hooks/useGetKurlyItem';
@@ -22,9 +22,13 @@ const IngredientDetail = ({ ingredientKeyword }: { ingredientKeyword: string }) 
                   <p>{formatNumber(kurlyItem.price)}원</p>
                 </div>
               </div>
-              <a href={KURLY_ITEM_URL(kurlyItem.no)} target="_blank" rel="noopener noreferrer">
-                <Button text="구매" className="btn-kurly w-full sm:w-auto mt-3 sm:mt-0" />
-              </a>
+              <ALink
+                className="btn-kurly text-center hover-opacity"
+                href={KURLY_ITEM_URL(kurlyItem.no)}
+                text="구매"
+                target="_blank"
+                rel="noopener noreferrer"
+              />
             </article>
           </li>
         ))}
