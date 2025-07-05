@@ -1,4 +1,4 @@
-import { YOUTUBE_IFRAME } from '@/constants/externalUrl';
+import { YOUTUBE } from '@/constants/externalUrl';
 import clsx from 'clsx';
 
 const YoutubeVideo = ({ id, className }: { id: string; className?: string }) => {
@@ -6,7 +6,7 @@ const YoutubeVideo = ({ id, className }: { id: string; className?: string }) => 
     <div className={clsx(className, 'aspect-video rounded-2xl overflow-hidden')}>
       <iframe
         className="w-full h-full"
-        src={YOUTUBE_IFRAME(id)}
+        src={YOUTUBE.IFRAME(id)}
         title="YouTube video"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
         allowFullScreen
