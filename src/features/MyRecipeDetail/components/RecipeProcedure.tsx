@@ -3,13 +3,13 @@ import SectionLayout from '@/components/shared/SectionLayout';
 const RecipeProcedure = ({ procedure }: { procedure: string[] }) => {
   return (
     <SectionLayout title="조리 순서">
-      <ol className="space-y-5">
+      <ol className="space-y-4">
         {procedure.map((step, index) => (
           <li
             key={step}
-            className="relative bg-white dark:bg-gray-800 px-5 py-4 rounded-xl border-l-4 shadow-[var(--shadow)]"
+            className="relative bg-[var(--color-card-bg)] px-5 py-4 rounded-xl border-l-4 border-y border-y-[var(--color-border)] border-r border-r-[var(--color-border)] shadow-[var(--shadow)]"
           >
-            <div className="mb-1 text-sm text-gray-500 dark:text-gray-400">STEP {index + 1}</div>
+            <div className="mb-1 text-sm text-[var(--color-sub-text)]">STEP {index + 1}</div>
             <p className="leading-relaxed">{step}</p>
           </li>
         ))}

@@ -23,12 +23,16 @@ const RecipeDetail = () => {
     <PageLayout title={recipeItem.name}>
       <p className="date-text mb-3">저장일 : {formatDateTime(recipeItem.created_at)}</p>
       <YoutubeVideo id={recipeItem.video_id} />
-      <ChannelInfo channelName={recipeItem.channel} channelTitle={recipeItem.title} />
+      <ChannelInfo
+        videoId={recipeItem.video_id}
+        channelName={recipeItem.channel}
+        channelTitle={recipeItem.title}
+      />
       <RecipeProcedure procedure={recipeItem.item} />
       <Ingredients ingredients={recipeItem.ingredients} />
       <Button
         text="추천 레시피"
-        className="btn-primary w-full mt-1"
+        className="btn-primary w-full mt-4"
         onClick={() => open('relatedRecipes', { title: '추천 레시피', id: recipeItem.id })}
       />
     </PageLayout>
