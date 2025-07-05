@@ -3,12 +3,13 @@
   --color-sub-bg: #f3f4f6;
   --color-bg-hover: #eceef1;
   --color-btn-bg: #f8f9fa;
-  --color-kurly: #9046cf;
-  --color-list-item-bg: #ffffff;
+  --color-kurly: #611f69;
+  --color-border: #f3f4f6;
+  --color-card-bg: #ffffff;
   --color-text: #374151;
+  --color-sub-text: #6b7280;
   --color-primary: #36a193;
   --color-toast-bg: #fff;
-
   --color-secondary: #38bdf8; /* sky-400 */
   --color-accent: #f97316; /* orange-500 */
   --color-success: #10b981; /* emerald-500 */
@@ -20,17 +21,18 @@
 }
 
 html.dark {
-  --color-bg: #13161c;
+  --color-bg: #0b0f13;
   --color-sub-bg: #292c31;
   --color-bg-hover: #364153;
   --color-btn-bg: #4c5270;
-  --color-kurly: #5f0080;
-  --color-list-item-bg: #34394e;
+  --color-kurly: #471c4a;
+  --color-card-bg: #20232a;
   --color-text: #e2e8f0;
-  --color-primary: #36a193cc;
+  --color-sub-text: #9ca3af;
+  --color-primary: #2f8c7e;
   --color-toast-bg: #1f2937;
   --color-input-bg: #1f2937;
-
+  --color-border: rgba(38, 38, 38, 0.7);
   --color-secondary: #0ea5e9; /* sky-500 */
   --color-accent: #fb923c; /* orange-400 */
   --color-success: #34d399; /* emerald-400 */
