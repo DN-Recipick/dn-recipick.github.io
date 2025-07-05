@@ -42,11 +42,11 @@
   }
   body {
     color: var(--color-text);
-    @apply bg-gray-100 dark:bg-gray-800 antialiased;
+    @apply bg-gray-100 dark:bg-[#161b22] antialiased;
   }
   #root {
     background-color: var(--color-bg);
-    @apply shadow-md min-h-screen mx-auto flex flex-col items-center max-w-3xl;
+    @apply shadow-md min-h-screen mx-auto flex flex-col items-center max-w-4xl;
   }
   input:-webkit-autofill {
     box-shadow: inset 0 0 0 1000px var(--color-input-bg) !important;
@@ -77,7 +77,7 @@
     @apply text-sm sm:text-base md:text-[1rem] font-medium;
   }
   button {
-    @apply cursor-pointer;
+    @apply cursor-pointer break-keep;
   }
   li {
     list-style: none;
@@ -91,10 +91,17 @@
 @layer components {
   /* 재사용 가능한 디자인 블록을 정의 우선 순위 중간*/
   .btn-primary {
-    @apply bg-[var(--color-primary)] rounded text-white px-3.5 py-2;
+    @apply bg-[var(--color-primary)] rounded text-white px-3.5 py-2.5;
   }
   .btn-kurly {
-    @apply bg-[var(--color-kurly)] rounded text-white px-3.5 py-2;
+    &:hover {
+      box-shadow: inset 0 0 0 1px var(--color-kurly);
+    }
+    @apply px-3 py-2 rounded
+    dark:bg-[var(--color-kurly)]
+    border-[1.5px] border-[var(--color-kurly)]
+    text-[var(--color-kurly)]
+    dark:text-white;
   }
   .btn-icon {
     @apply hover:bg-[var(--color-bg-hover)] p-1.75 rounded-full;
@@ -105,11 +112,14 @@
   .main-input {
     @apply bg-white dark:bg-gray-800 border focus:outline-2 focus:border-transparent focus:outline-offset-0;
   }
-  .dropdown-item {
-    @apply flex items-center gap-2 px-2 py-1.5 cursor-pointer hover:bg-[var(--color-bg-hover)] text-sm;
-  }
   .recipe-item-wrap {
     @apply h-80 rounded-lg overflow-hidden shadow-[var(--shadow)] flex flex-col;
+  }
+  .dropdown-item {
+    @apply flex items-center gap-2 p-2 cursor-pointer hover:bg-[var(--color-bg-hover)];
+  }
+  .dropdown-list {
+    @apply divide-y divide-gray-200 border-gray-200 dark:divide-gray-700 dark:border-gray-700 border absolute overflow-hidden bg-white dark:bg-gray-800 my-1 shadow-[var(--shadow)] rounded z-10;
   }
 }
 
@@ -128,6 +138,7 @@
   .animate-fade-in-up {
     animation: fade-in-up 0.3s ease-out forwards;
   }
+
   .skeleton-bg {
     @apply bg-gray-300 dark:bg-gray-700;
   }
@@ -141,16 +152,16 @@
     @apply flex items-center justify-center;
   }
   .layout-max-w {
-    @apply max-w-3xl;
+    @apply max-w-4xl;
   }
   .hover-opacity {
     @apply hover:opacity-80;
   }
   .p-content {
-    @apply py-4 px-6;
+    @apply py-4 px-5;
   }
   .px-content {
-    @apply px-6;
+    @apply px-5;
   }
   .mini-icon-size {
     @apply w-4 h-4;
@@ -159,6 +170,6 @@
     @apply py-4;
   }
   .date-text {
-    @apply text-gray-500 font-sans font-bold;
+    @apply text-[var(--color-sub-text)] font-sans font-bold;
   }
 }
