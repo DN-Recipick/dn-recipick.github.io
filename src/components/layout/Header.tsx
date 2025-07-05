@@ -17,7 +17,7 @@ const Header = () => {
       <Logo />
       {isSignin ? (
         <Dropdown dropdownListClassName="right-0" icon={<FaUserAlt className="mini-icon-size" />}>
-          <DropdownItems options={[{ text: `${user?.email}님`, label: 'my' }]} />
+          <DropdownItems options={[{ text: `${user?.email} 님`, label: 'my' }]} />
           <DropdownItems options={USER_OPTIONS} onSelect={() => handleSignout()} />
         </Dropdown>
       ) : (
