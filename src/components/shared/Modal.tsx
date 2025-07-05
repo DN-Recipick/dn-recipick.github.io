@@ -28,7 +28,7 @@ const Modal = () => {
             className="btn-icon text-gray-500 absolute right-2 top-2"
           />
         </div>
-        <div className="max-h-[65vh] overflow-y-auto px-content">
+        <div className="max-h-[65vh] overflow-y-auto px-content pb-10">
           {type === 'ingredient' && (
             <IngredientDetail ingredientKeyword={data?.ingredientKeyword as string} />
           )}
