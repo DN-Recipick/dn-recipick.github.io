@@ -12,10 +12,10 @@ const ChannelInfo = ({
   videoId: string;
 }) => {
   return (
-    <div className="flex items-center gap-4 px-6 py-4 mt-8 mb-5 rounded-xl bg-[var(--color-card-bg)] border border-[var(--color-border)] shadow-[var(--shadow)]">
+    <div className="flex items-center gap-4 px-5 py-4 my-5 rounded-xl bg-[var(--color-card-bg)] border border-[var(--color-border)] shadow-[var(--shadow)]">
       <Image
         alt="채널 이미지"
-        wrapClassName="w-16 h-16 sm:w-18 sm:h-18 rounded-full bg-blue-100 shadow"
+        wrapClassName="w-15 h-15 sm:w-18 sm:h-18 rounded-full bg-blue-100 shadow"
       />
       <div className="flex-1 flex-column gap-1">
         <p className="text-base sm:text-lg line-clamp-1">{channelTitle}</p>
