@@ -21,7 +21,7 @@ const DropdownItems = ({ options, onSelect, className }: DropdownItemsProps): Re
       }}
     >
       {option.icon}
-      <span className="flex-1 text-center">{option.text}</span>
+      <span className="flex-1 text-center whitespace-nowrap">{option.text}</span>
     </li>
   ));
 };
