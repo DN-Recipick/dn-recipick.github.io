@@ -101,7 +101,7 @@
     dark:bg-[var(--color-kurly)]
     border-[1.5px] border-[var(--color-kurly)]
     text-[var(--color-kurly)]
-    dark:text-white;
+    dark:text-[#fdf6ff];
   }
   .btn-icon {
     @apply hover:bg-[var(--color-bg-hover)] p-1.75 rounded-full;
@@ -158,10 +158,10 @@
     @apply hover:opacity-80;
   }
   .p-content {
-    @apply py-4 px-5;
+    @apply py-4 px-3;
   }
   .px-content {
-    @apply px-5;
+    @apply px-3;
   }
   .mini-icon-size {
     @apply w-4 h-4;
