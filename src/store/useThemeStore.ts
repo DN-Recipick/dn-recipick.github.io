@@ -18,7 +18,7 @@ const applyThemeToDOM = (theme: string) => {
 export const useThemeStore = create<ThemeState>()(
   persist(
     (set, get) => ({
-      theme: 'system',
+      theme: 'light',
 
       setTheme: (theme) => {
         set({ theme });
