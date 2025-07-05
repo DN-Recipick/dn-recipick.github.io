@@ -27,16 +27,8 @@ const Dropdown = ({
         }}
         icon={icon}
       />
-
       {isOpen && (
-        <ul
-          className={clsx(
-            dropdownListClassName,
-            'absolute overflow-hidden bg-white dark:bg-gray-800 mt-2 border border-gray-600 shadow-[var(--shadow)] rounded z-10',
-          )}
-        >
-          {dropdownListChildren}
-        </ul>
+        <ul className={clsx(dropdownListClassName, 'dropdown-list')}>{dropdownListChildren}</ul>
       )}
     </div>
   );
