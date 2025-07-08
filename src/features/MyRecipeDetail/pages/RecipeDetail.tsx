@@ -10,14 +10,16 @@ import Button from '@/components/shared/Button';
 import { useModalStore } from '@/store/useModalStore';
 import PageLayout from '@/components/shared/PageLayout';
 import ChannelInfo from '@/features/MyRecipeDetail/components/ChannelInfo';
+import { useAddExternalRecipe } from '@/features/MyRecipeDetail/hooks/useAddExternalRecipe';
 
 const RecipeDetail = () => {
   const { open } = useModalStore();
   const { id } = useParams();
-  const { recipeItem, isPending } = useGetRecipeItem(id ?? '');
+  const { recipeItem, isPendingRecipeItem } = useGetRecipeItem(id ?? '');
+  const { addRecipe, isPendingAddRecipe } = useAddExternalRecipe();
 
   if (!id) return <Navigate to={ROUTES.NOT_FOUND} />;
-  if (isPending || !recipeItem) return <FullScreenLoader />;
+  if (isPendingRecipeItem || !recipeItem) return <FullScreenLoader />;
 
   return (
     <PageLayout title={recipeItem.name}>
@@ -31,10 +33,18 @@ const RecipeDetail = () => {
       <RecipeProcedure procedure={recipeItem.item} />
       <Ingredients ingredients={recipeItem.ingredients} />
       <Button
-        text="추천 레시피"
+        text="추천 레시피 보기"
         className="btn-primary w-full mt-4"
-        onClick={() => open('relatedRecipes', { title: '추천 레시피', id: recipeItem.id })}
+        onClick={() => open('recommendRecipes', { title: '추천 레시피', id: recipeItem.id })}
       />
+      {!recipeItem.is_mine && (
+        <Button
+          text="내 레시피에 추가"
+          className="btn-primary w-full mt-4"
+          onClick={() => addRecipe(recipeItem.id)}
+          isPending={isPendingAddRecipe}
+        />
+      )}
     </PageLayout>
   );
 };
