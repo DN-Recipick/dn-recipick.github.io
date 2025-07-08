@@ -4,11 +4,11 @@ import { useLinkRecipe } from '@/features/RecipeLink/hooks/useLinkRecipe';
 import { FaArrowRight } from 'react-icons/fa';
 
 const RecipeLinkForm = () => {
-  const { register, isPending, onSubmit, errors } = useLinkRecipe();
+  const { register, isPending, onSubmit, errors } = useLinkRecipe({ focusName: 'url' });
   return (
     <form
       onSubmit={onSubmit}
-      className="p-2 my-3 flex-column justify-between border-[0.1rem] border-[var(--color-primary)] shadow-[var(--shadow)] min-h-25 rounded-md"
+      className="p-2 my-3 flex-column justify-between bg-[var(--color-secondary)] border-[0.1rem] border-[var(--color-primary)] shadow-[var(--shadow)] min-h-25 rounded-md"
     >
       <Input
         {...register('url')}
