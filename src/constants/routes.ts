@@ -4,7 +4,7 @@ export const ROUTES = {
   SIGNUP: '/signup',
   RECIPES: '/recipes',
   RECIPE: (id: string) => `/recipes/${id}`,
-  SHARE_RECIPE: '/add',
+  SHARED_RECIPE: '/add',
   NOT_FOUND: '/404',
   RECIPE_PATH: '/recipes/:id',
   ALL: '*',
