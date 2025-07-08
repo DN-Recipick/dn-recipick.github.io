@@ -1,8 +1,10 @@
+import EmptyState from '@/components/feedback/empty/EmptyState';
 import SectionLayout from '@/components/shared/SectionLayout';
 
 const RecipeProcedure = ({ procedure }: { procedure: string[] }) => {
   return (
     <SectionLayout title="조리 순서">
+      {procedure.length === 0 && <EmptyState text="조리 순서가 없습니다" />}
       <ol className="space-y-4">
         {procedure.map((step, index) => (
           <li

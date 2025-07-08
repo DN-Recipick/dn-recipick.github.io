@@ -1,3 +1,4 @@
+import EmptyState from '@/components/feedback/empty/EmptyState';
 import Button from '@/components/shared/Button';
 import SectionLayout from '@/components/shared/SectionLayout';
 import { useModalStore } from '@/store/useModalStore';
@@ -7,6 +8,7 @@ const Ingredients = ({ ingredients }: { ingredients: Ingredient[] }) => {
   const { open } = useModalStore();
   return (
     <SectionLayout title="재료">
+      {ingredients.length === 0 && <EmptyState text="재료가 없습니다" />}
       <ul className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
         {ingredients.map(({ name, amount }) => (
           <li
