@@ -41,9 +41,7 @@ export const buildFetchOptions = async ({
   options = {},
 }: FetchOptionsConfig): Promise<RequestInit> => {
   const { withAuth, withApikey, ...rest } = options;
-  console.log(options);
   const authHeaders = withAuth ? await getAuthHeaders() : {};
-  console.log(authHeaders);
 
   const mergedHeaders: HeadersInit = {
     ...(method !== 'GET' && { 'Content-Type': 'application/json' }),
