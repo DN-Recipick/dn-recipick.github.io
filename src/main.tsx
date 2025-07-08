@@ -17,6 +17,7 @@ import Signup from '@/features/auth/pages/Signup.tsx';
 import MyRecipes from '@/features/MyRecipes/pages/MyRecipes.tsx';
 import RecipeDetail from './features/MyRecipeDetail/pages/RecipeDetail.tsx';
 import FullPageFallback from '@/components/feedback/fallback/FullPageFallback.tsx';
+import SharedRecipeFallback from '@/components/feedback/fallback/SharedRecipeFallback.tsx';
 
 const router = createBrowserRouter([
   {
@@ -29,7 +30,7 @@ const router = createBrowserRouter([
     children: [
       { path: '', element: <Home /> },
       { path: ROUTES.RECIPES, element: <MyRecipes /> },
-      { path: ROUTES.SHARE_RECIPE, element: <MyRecipes /> },
+      { path: ROUTES.SHARED_RECIPE, element: <SharedRecipeFallback /> },
       { path: ROUTES.RECIPE_PATH, element: <RecipeDetail /> },
       //   path: '/fallback',
       //   element: (

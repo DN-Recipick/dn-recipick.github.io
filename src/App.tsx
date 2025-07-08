@@ -7,14 +7,11 @@ import Modal from '@/components/shared/Modal';
 import { useModalStore } from '@/store/useModalStore';
 import { useFallbackStore } from '@/store/useFallbackStore';
 import FallbackUI from '@/components/feedback/fallback/FullPageFallback';
-import { useShareUrl } from '@/hooks/useShareUrl';
 
 function App() {
   const { visible } = useFallbackStore();
   const initTheme = useThemeStore((state) => state.initTheme);
   const { isOpen } = useModalStore();
-
-  useShareUrl();
 
   useEffect(() => {
     initTheme();
