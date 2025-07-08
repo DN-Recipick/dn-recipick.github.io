@@ -5,6 +5,7 @@ import { HiX } from 'react-icons/hi';
 import { useModalEffect } from '@/components/shared/hook/useModalEffect';
 import IngredientDetail from '@/features/MyRecipeDetail/components/IngredientDetail';
 import RecommendedRecipes from '@/features/MyRecipeDetail/components/RecommendedRecipes';
+import SectionLayout from '@/components/shared/SectionLayout';
 
 const Modal = () => {
   const { data, type, isOpen, close } = useModalStore();
@@ -28,11 +29,13 @@ const Modal = () => {
             className="btn-icon text-gray-500 absolute right-2 top-2"
           />
         </div>
-        <div className="max-h-[65vh] overflow-y-auto px-content pb-10">
-          {type === 'ingredient' && (
-            <IngredientDetail ingredientKeyword={data?.ingredientKeyword as string} />
-          )}
-          {type === 'relatedRecipes' && <RecommendedRecipes id={data?.id as string} />}
+        <div className="max-h-[65vh] overflow-y-auto px-content">
+          <SectionLayout>
+            {type === 'ingredient' && (
+              <IngredientDetail ingredientKeyword={data?.ingredientKeyword as string} />
+            )}
+            {type === 'recommendRecipes' && <RecommendedRecipes id={data?.id as string} />}
+          </SectionLayout>
         </div>
       </div>
     </div>,
