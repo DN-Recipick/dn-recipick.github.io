@@ -1,7 +1,5 @@
 import { create } from 'zustand';
-
-export type ModalType = 'ingredient' | 'relatedRecipes' | null;
-
+import { type ModalType } from '@/types/ui';
 interface ModalData {
   title: string;
   [key: string]: unknown;
