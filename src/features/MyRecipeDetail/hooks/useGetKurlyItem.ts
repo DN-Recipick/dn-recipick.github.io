@@ -8,5 +8,5 @@ export const useGetKurlyItem = (ingredientKeyword: string) => {
     queryFn: () => getKurlyItems(ingredientKeyword),
   });
 
-  return { kurlyItems: data?.result, isPending };
+  return { kurlyItems: data, isPending };
 };
