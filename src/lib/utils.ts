@@ -35,20 +35,23 @@ export const buildUrl = (
   return url;
 };
 
-export const buildFetchOptions = ({
+export const buildFetchOptions = async ({
   method,
   data,
   options = {},
-}: FetchOptionsConfig): RequestInit => {
+}: FetchOptionsConfig): Promise<RequestInit> => {
   const { withAuth, withApikey, ...rest } = options;
-  //get 일떄 application : json 없어야한다
-  //get 일때 body 자체가 없어야한다
+  console.log(options);
+  const authHeaders = withAuth ? await getAuthHeaders() : {};
+  console.log(authHeaders);
+
   const mergedHeaders: HeadersInit = {
     ...(method !== 'GET' && { 'Content-Type': 'application/json' }),
-    ...(withAuth ? getAuthHeaders() : {}),
+    ...authHeaders,
     ...(withApikey ? { apikey: API_SUPABASE_KEY } : {}),
     ...(options.headers ?? {}),
   };
+
   const body = method !== 'GET' && data !== undefined ? { body: JSON.stringify(data) } : {};
 
   return {

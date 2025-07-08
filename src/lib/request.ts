@@ -17,11 +17,12 @@ async function request<T>({ method, endpoint, data, options = {} }: RequestConfi
   const controller = new AbortController();
   const timeoutId = setTimeout(() => controller.abort(), timeout);
   const signal = externalSignal ?? controller.signal;
+  const fetchOptions = await buildFetchOptions({ method, data, options });
 
   try {
     const url = buildUrl(baseURL, endpoint, queryParams);
     const res = await fetch(url, {
-      ...buildFetchOptions({ method, data, options }),
+      ...fetchOptions,
       signal,
     });
 
