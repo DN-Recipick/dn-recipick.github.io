@@ -1,9 +1,10 @@
-import { ENDPOINTS } from '@/constants/endPoints';
-import httpClient from '@/lib/httpClient';
-import type { SigninResponse, SignupPayload, SigninFormType } from '@/types/auth';
+import { supabaseClient } from '@/lib/supabaseClient';
+import type { SignupPayload, SigninFormType } from '@/types/auth';
+import type { AuthTokenResponsePassword, UserResponse } from '@supabase/supabase-js';
 
-export const signin = (payload: SigninFormType): Promise<SigninResponse> =>
-  httpClient.post(ENDPOINTS.AUTH.SIGNIN, payload, { withApikey: true });
+export const signin = (payload: SigninFormType): Promise<AuthTokenResponsePassword> =>
+  supabaseClient.auth.signInWithPassword(payload);
 
-export const signup = (payload: SignupPayload) =>
-  httpClient.post(ENDPOINTS.AUTH.SIGNUP, payload, { withApikey: true });
+export const signup = (payload: SignupPayload) => supabaseClient.auth.signUp(payload);
+
+export const getUser = (): Promise<UserResponse> => supabaseClient.auth.getUser();
