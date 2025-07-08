@@ -1,21 +1,27 @@
 import { ROUTES } from '@/constants/routes';
 import { NavLink } from 'react-router-dom';
-import { useAuthStore } from '@/store/useAuthStore';
 import Dropdown from '@/components/layout/Dropdown/Dropdown';
 import { USER_OPTIONS } from '@/constants/dropdownOptions';
 import { FaUserAlt } from 'react-icons/fa';
 import { useSignout } from '@/features/auth/hooks/useSignout';
 import DropdownItems from '@/components/layout/Dropdown/RenderDropdownItems';
 import Logo from './../shared/Logo';
+import useGetUser from '@/features/auth/hooks/useGetUser';
+// import { useQueryClient } from '@tanstack/react-query';
+// import { queryKeys } from '@/constants/queryKeys';
 
 const Header = () => {
-  const { isSignin, user } = useAuthStore();
-  const handleSignout = useSignout();
+  const { user, isPending, isSignedIn } = useGetUser();
+  // const queryClient = useQueryClient();
+  // console.log('👀 캐시 상태:', queryClient.getQueryData(queryKeys.auth.me));
+  // console.log('렌더링');
 
+  const handleSignout = useSignout();
+  if (isPending) return null;
   return (
     <header className="w-full p-content flex-center-between z-30">
       <Logo />
-      {isSignin ? (
+      {isSignedIn ? (
         <Dropdown dropdownListClassName="right-0" icon={<FaUserAlt className="mini-icon-size" />}>
           <DropdownItems options={[{ text: `${user?.email} 님`, label: 'my' }]} />
           <DropdownItems options={USER_OPTIONS} onSelect={() => handleSignout()} />
