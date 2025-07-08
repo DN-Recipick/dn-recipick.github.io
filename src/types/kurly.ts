@@ -4,6 +4,3 @@ export interface KurlyItem {
   imageUrl: string;
   price: string;
 }
-export interface KurlyItemResponse {
-  result: KurlyItem[];
-}
