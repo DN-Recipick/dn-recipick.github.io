@@ -113,7 +113,7 @@
     @apply bg-white dark:bg-gray-800 border focus:outline-2 focus:border-transparent focus:outline-offset-0;
   }
   .recipe-item-wrap {
-    @apply h-80 rounded-lg overflow-hidden shadow-[var(--shadow)] flex flex-col;
+    @apply h-95 rounded-lg overflow-hidden shadow-[var(--shadow)] flex flex-col;
   }
   .dropdown-item {
     @apply flex items-center gap-2 p-2 cursor-pointer hover:bg-[var(--color-bg-hover)];
