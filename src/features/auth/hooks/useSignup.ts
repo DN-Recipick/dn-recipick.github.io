@@ -29,7 +29,7 @@ export const useSignup = () => {
     mutationFn: (formData: SignupPayload) => signup(formData),
     onSuccess: () => {
       showToast.success(SUCCESS_MESSAGES.auth.signup);
-      navigate(ROUTES.SIGNIN);
+      navigate(ROUTES.HOME);
     },
   });
 
