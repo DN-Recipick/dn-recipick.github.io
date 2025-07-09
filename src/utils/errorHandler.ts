@@ -12,9 +12,9 @@ import { customQueryClient } from '@/lib/queryClient';
 //TODO : 전체 디렉토리 구조 조정
 //TODO : 헤더 리렌더링 관련 수정, 헤더 스켈레톤? 추가 고려
 //TODO : getUser 에러 처리
-//TODO : ui 다듬기
-//TODO : 에러 핸들러 spa 방식으로 리다이렉트?
-//TODO : 로그인, 회원가입 focus 추가
+//TODO : ui 다듬기 !! 레시피 로딩 포함
+//TODO : 로그인, 회원가입 focus 추가 focus를 커스텀 훅 인자로 받지 말고 그냥 커스텀 훅 내부에서 사용
+//TODO : 로그인/회원가입 영역만 컴포넌트로 분리 + 로딩 핸들링 지금 pending 중일때 null 반환하고 있음 헤더에서
 
 export const handleAppError = async (error: unknown) => {
   const { show } = useFallbackStore.getState();
