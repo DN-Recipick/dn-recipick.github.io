@@ -7,15 +7,9 @@ import { useSignout } from '@/features/auth/hooks/useSignout';
 import DropdownItems from '@/components/layout/Dropdown/RenderDropdownItems';
 import Logo from './../shared/Logo';
 import useGetUser from '@/features/auth/hooks/useGetUser';
-// import { useQueryClient } from '@tanstack/react-query';
-// import { queryKeys } from '@/constants/queryKeys';
 
 const Header = () => {
   const { user, isPending, isSignedIn } = useGetUser();
-  // const queryClient = useQueryClient();
-  // console.log('👀 캐시 상태:', queryClient.getQueryData(queryKeys.auth.me));
-  // console.log('렌더링');
-
   const handleSignout = useSignout();
   if (isPending) return null;
   return (
