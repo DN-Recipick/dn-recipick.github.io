@@ -18,7 +18,7 @@ export const handleAuthRequest = async <
   payload: T,
 ): Promise<AuthResponse['data']> => {
   const { data, error } = await fn(payload);
-  console.log(data, error);
+
   if (error) {
     const status = error.status || 500;
     throw new CustomError(status, error.message);
