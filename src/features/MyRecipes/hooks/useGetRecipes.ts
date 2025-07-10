@@ -16,6 +16,7 @@ const useGetRecipes = () => {
 
   useEffect(() => {
     const channel = supabaseClient.channel('recipe-state');
+    console.log('Effect');
 
     // UPDATE 이벤트에서 state가 1이 될 때만 쿼리 무효화
     channel
@@ -41,7 +42,8 @@ const useGetRecipes = () => {
   }, [queryClient]);
 
   return {
-    recipes: data?.recipes,
+    isRealTimePending: data?.recipes.some((recipe) => recipe.state === 0),
+    recipes: data?.recipes.filter((recipe) => recipe.state === 1),
     isPending,
   };
 };
