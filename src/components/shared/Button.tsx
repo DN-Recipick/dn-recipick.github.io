@@ -11,7 +11,7 @@ export default function Button({ text, icon, isPending, className, ...rest }: Bu
   return (
     <button
       className={clsx(
-        'text-sm sm:text-basefont-medium transition hover:opacity-85 flex-center gap-2',
+        'text-sm sm:text-basefont-medium transition hover:opacity-85 flex-center gap-1',
         className,
       )}
       disabled={isPending || rest.disabled}
