@@ -1,25 +1,35 @@
 import { ROUTES } from '@/constants/routes';
-import { NavLink } from 'react-router-dom';
-import Dropdown from '@/components/layout/Dropdown/Dropdown';
-import { USER_OPTIONS } from '@/constants/dropdownOptions';
-import { FaUserAlt } from 'react-icons/fa';
-import { useSignout } from '@/features/auth/hooks/useSignout';
-import DropdownItems from '@/components/layout/Dropdown/RenderDropdownItems';
+import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 import Logo from './../shared/Logo';
 import useGetUser from '@/features/auth/hooks/useGetUser';
+import UserDropdown from '@/components/shared/UserDropdown';
+import Button from '@/components/shared/Button';
+import { IoMdArrowBack } from 'react-icons/io';
+import { usePageStore } from '@/store/usePageStore';
 
 const Header = () => {
-  const { user, isPending, isSignedIn } = useGetUser();
-  const handleSignout = useSignout();
-  if (isPending) return null;
+  const title = usePageStore((state) => state.title);
+  const { isSignedIn } = useGetUser();
+  const location = useLocation();
+  const navigate = useNavigate();
   return (
-    <header className="w-full p-content flex-center-between z-30">
-      <Logo />
+    <header className="header-layout">
+      {location.pathname === ROUTES.HOME ||
+      location.pathname === ROUTES.SIGNIN ||
+      location.pathname === ROUTES.SIGNUP ? (
+        <Logo />
+      ) : (
+        <Button
+          className="btn-icon"
+          icon={<IoMdArrowBack className="text-2xl" />}
+          onClick={() => navigate(-1)}
+        />
+      )}
       {isSignedIn ? (
-        <Dropdown dropdownListClassName="right-0" icon={<FaUserAlt className="mini-icon-size" />}>
-          <DropdownItems options={[{ text: `${user?.email} 님`, label: 'my' }]} />
-          <DropdownItems options={USER_OPTIONS} onSelect={() => handleSignout()} />
-        </Dropdown>
+        <>
+          <p className="text-xl">{title}</p>
+          <UserDropdown />
+        </>
       ) : (
         <div className="flex-center gap-2 text-[0.7rem] sm:text-[0.875rem]">
           <NavLink
