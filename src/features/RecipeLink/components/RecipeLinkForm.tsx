@@ -4,7 +4,7 @@ import { useLinkRecipe } from '@/features/RecipeLink/hooks/useLinkRecipe';
 import { FaArrowRight } from 'react-icons/fa';
 
 const RecipeLinkForm = () => {
-  const { register, isPending, onSubmit, errors } = useLinkRecipe({ focusName: 'url' });
+  const { register, isPending, onSubmit, errors } = useLinkRecipe();
   return (
     <form
       onSubmit={onSubmit}
