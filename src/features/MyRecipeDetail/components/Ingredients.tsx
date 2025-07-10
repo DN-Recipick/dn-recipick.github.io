@@ -13,7 +13,7 @@ const Ingredients = ({ ingredients }: { ingredients: Ingredient[] }) => {
         {ingredients.map(({ name, amount }) => (
           <li
             key={name}
-            className="flex-column justify-between p-4 rounded-lg bg-[var(--color-card-bg)] shadow-[var(--shadow)] border border-[var(--color-border)]"
+            className="flex-column justify-between p-4 rounded-lg bg-[var(--color-card-bg)] shadow-[var(--shadow)]"
           >
             <div>
               <p>{name}</p>

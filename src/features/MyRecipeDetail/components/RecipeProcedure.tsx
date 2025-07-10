@@ -9,7 +9,7 @@ const RecipeProcedure = ({ procedure }: { procedure: string[] }) => {
         {procedure.map((step, index) => (
           <li
             key={step}
-            className="relative bg-[var(--color-card-bg)] px-5 py-4 rounded-xl border-l-4 border-y border-y-[var(--color-border)] border-r border-r-[var(--color-border)] shadow-[var(--shadow)]"
+            className="relative bg-[var(--color-card-bg)] px-5 py-4 rounded-xl border-l-4 shadow-[var(--shadow)]"
           >
             <div className="mb-1 text-sm text-[var(--color-sub-text)]">STEP {index + 1}</div>
             <p className="leading-relaxed break-words">{step}</p>

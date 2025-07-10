@@ -14,9 +14,9 @@ const RecipeList = ({
 }) => {
   if (recipes?.length === 0) return <EmptyState text="저장된 레시피가 없습니다" />;
   return (
-    <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 items-stretch">
+    <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4 items-stretch">
       {isPending
-        ? Array.from({ length: 6 }).map((_, idx) => <SkeletonRecipeItem key={idx} />)
+        ? [...Array(4)].map((_, idx) => <SkeletonRecipeItem key={idx} />)
         : recipes?.map((recipe) => (
             <ItemErrorBoundary FallbackComponent={RecipeItemFallback} key={recipe.id}>
               <RecipeItem recipe={recipe} />
