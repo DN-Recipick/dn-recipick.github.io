@@ -1,5 +1,5 @@
 import EmptyState from '@/components/feedback/empty/EmptyState';
-import SkeletonIngredientDetail from '@/components/feedback/skeleton/SkeletonIndredientDetail';
+import SkeletonIngredientDetail from '@/components/feedback/skeleton/SkeletonIngredientDetail';
 import ALink from '@/components/shared/ALink';
 import Image from '@/components/shared/Image';
 import { KURLY_ITEM_URL } from '@/constants/externalUrl';
