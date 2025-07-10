@@ -1,6 +1,7 @@
 import { SUCCESS_MESSAGES } from '@/constants/messages';
 import { ROUTES } from '@/constants/routes';
 import { signup } from '@/features/auth/apis';
+import useSetFormFocus from '@/features/MyRecipes/hooks/useSetFormFocus';
 import type { SignupPayload, SignupFormType } from '@/types/auth';
 import { showToast } from '@/utils/toast';
 import { signupSchema } from '@/validation/auth.schema';
@@ -15,6 +16,8 @@ export const useSignup = () => {
     register,
     handleSubmit,
     formState: { errors },
+    setFocus,
+    clearErrors,
   } = useForm<SignupFormType>({
     defaultValues: {
       email: '',
@@ -24,6 +27,8 @@ export const useSignup = () => {
     resolver: zodResolver(signupSchema),
     mode: 'onBlur',
   });
+
+  useSetFormFocus({ setFocus, clearErrors, focusName: 'email' });
 
   const { isPending, mutate } = useMutation({
     mutationFn: (formData: SignupPayload) => signup(formData),
