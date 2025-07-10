@@ -5,7 +5,7 @@ import { showToast } from '@/utils/toast';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { useNavigate } from 'react-router-dom';
 
-export const useAddExternalRecipe = () => {
+export const useAddExternalRecipe = (id: string) => {
   const navigate = useNavigate();
   const queryClient = useQueryClient();
   const { mutate: addRecipe, isPending: isPendingAddRecipe } = useMutation({
@@ -14,6 +14,9 @@ export const useAddExternalRecipe = () => {
       showToast.success('내 레시피 목록에 추가되었습니다');
       navigate(ROUTES.RECIPES);
       queryClient.invalidateQueries({ queryKey: queryKeys.RECIPE.all });
+      if (id) {
+        queryClient.invalidateQueries({ queryKey: queryKeys.RECIPE.item(id) });
+      }
     },
   });
 
