@@ -11,11 +11,14 @@ const IngredientDetail = ({ ingredientKeyword }: { ingredientKeyword: string }) 
   if (isPending) return <SkeletonIngredientDetail />;
   return (
     <>
-      <div className="flex mb-3">
-        <p className="text-[1.1rem] sm:text-xl">컬리에서</p>
-        <p className="text-[var(--color-kurly)] text-[1.1rem] sm:text-xl">'{ingredientKeyword}'</p>
-        <p className="sm:text-xl text-[1.1rem] ">을(를) 검색한 결과입니다.</p>
+      <div className="flex flex-wrap mb-4">
+        <p className="text-[1.1rem] sm:text-xl">컬리에서&nbsp;</p>
+        <span className="text-[1.1rem] sm:text-xl whitespace-nowrap">
+          <span className="text-[var(--color-kurly)]">'{ingredientKeyword}'</span>을(를)&nbsp;
+        </span>
+        <span className="text-[1.1rem] sm:text-xl block">검색한 결과입니다.</span>
       </div>
+
       <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2">
         {kurlyItems?.length === 0 && <EmptyState text="일치하는 재료링크가 없습니다" />}
         {kurlyItems?.map((kurlyItem) => (
