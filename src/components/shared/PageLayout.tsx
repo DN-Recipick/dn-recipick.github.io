@@ -1,23 +1,15 @@
-import Button from '@/components/shared/Button';
-import React from 'react';
-import { IoMdArrowBack } from 'react-icons/io';
-import { useNavigate } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { usePageStore } from '@/store/usePageStore';
 
 const PageLayout = ({ children, title }: { children: React.ReactNode; title: string }) => {
-  const navigate = useNavigate();
-  return (
-    <>
-      <div className="flex items-center gap-3 mb-8">
-        <Button
-          className="btn-icon"
-          icon={<IoMdArrowBack className="text-2xl" />}
-          onClick={() => navigate('/')}
-        />
-        <h2 className="mb-0 line-clamp-1">{title}</h2>
-      </div>
-      {children}
-    </>
-  );
+  const setTitle = usePageStore((state) => state.setTitle);
+
+  useEffect(() => {
+    setTitle(title);
+    return () => setTitle('');
+  }, [title, setTitle]);
+
+  return <main className="pt-[6.5rem] pb-10 w-full flex-1">{children}</main>;
 };
 
 export default PageLayout;
