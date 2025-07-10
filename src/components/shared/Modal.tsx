@@ -14,22 +14,22 @@ const Modal = () => {
   if (!isOpen) return null;
 
   return createPortal(
-    <div className="fixed inset-0 z-50 flex-center bg-black/50" onClick={close}>
+    <div className="fixed inset-0 z-50 flex-center px-content bg-black/50" onClick={close}>
       <div
-        className="bg-white dark:bg-gray-800 rounded-md shadow-xl max-w-3xl w-full min-h-[18.75rem] max-h-[80vh] 
-              transition-all duration-300 transform -translate-y-5 opacity-0
+        className="bg-[var(--color-bg)] rounded-md shadow-xl max-w-3xl w-full min-h-[90vh] max-h-[95vh] overflow-hidden
+              transition-all duration-300 transform -translate-y
               animate-fade-in-up relative"
         onClick={(e) => e.stopPropagation()}
       >
         <div className="sticky top-0 p-3 shadow-[var(--shadow)]">
-          <h3 className="text-center h-15 content-center mb-0">{data?.title}</h3>
+          <h3 className="text-center h-15 content-center">{data?.title}</h3>
           <Button
             onClick={close}
             icon={<HiX className="text-3xl" />}
             className="btn-icon text-gray-500 absolute right-2 top-2"
           />
         </div>
-        <div className="max-h-[65vh] overflow-y-auto px-content">
+        <div className="px-content overflow-y-auto max-h-[calc(95vh-6rem)] pb-4">
           <SectionLayout>
             {type === 'ingredient' && (
               <IngredientDetail ingredientKeyword={data?.ingredientKeyword as string} />
