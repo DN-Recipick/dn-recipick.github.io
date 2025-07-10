@@ -27,14 +27,12 @@ const RecipeDetail = () => {
 
   return (
     <PageLayout title={'레시피'}>
-      <div className="mb-3 line-clamp-1 flex items-center gap-2">
-        <span className="text-2xl font-extrabold whitespace-nowrap">{recipeItem.name}</span>
-        <span className="text-[var(--color-sub-text)] text-sm whitespace-nowrap">
-          by {recipeItem.channel}
-        </span>
-      </div>
+      <h2 className="font-extrabold line-clamp-1 mb-3">{recipeItem.name}</h2>
+      <p className="text-[var(--color-sub-text)] text-sm line-clamp-1 mb-2">
+        by {recipeItem.channel}
+      </p>
 
-      <p className="text-gray-400 mb-2 ">{recipeItem.title}</p>
+      <p className="text-gray-400 mb-2 line-clamp-1">{recipeItem.title}</p>
       {/* <p className="date-text mb-3">저장일 : {formatDateTime(recipeItem.created_at)}</p> */}
       <YoutubeVideo id={recipeItem.video_id} />
       <RecipeProcedure procedure={recipeItem.item} />
