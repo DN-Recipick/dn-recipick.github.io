@@ -6,17 +6,25 @@ import UserDropdown from '@/components/shared/UserDropdown';
 import Button from '@/components/shared/Button';
 import { IoMdArrowBack } from 'react-icons/io';
 import { usePageStore } from '@/store/usePageStore';
+import clsx from 'clsx';
 
 const Header = () => {
   const title = usePageStore((state) => state.title);
   const { isSignedIn } = useGetUser();
   const location = useLocation();
   const navigate = useNavigate();
+  const isHomeOrAuthPage =
+    location.pathname === ROUTES.HOME ||
+    location.pathname === ROUTES.SIGNIN ||
+    location.pathname === ROUTES.SIGNUP;
   return (
-    <header className="header-layout">
-      {location.pathname === ROUTES.HOME ||
-      location.pathname === ROUTES.SIGNIN ||
-      location.pathname === ROUTES.SIGNUP ? (
+    <header
+      className={clsx(
+        'header-layout',
+        !isHomeOrAuthPage && 'shadow-[0_2px_4px_-1px_rgba(0,0,0,0.1)]',
+      )}
+    >
+      {isHomeOrAuthPage ? (
         <Logo />
       ) : (
         <Button
@@ -27,7 +35,7 @@ const Header = () => {
       )}
       {isSignedIn ? (
         <>
-          <p className="text-xl">{title}</p>
+          <p className="text-xl absolute left-1/2 -translate-x-1/2">{title}</p>
           <UserDropdown />
         </>
       ) : (
