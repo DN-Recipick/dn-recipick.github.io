@@ -13,8 +13,8 @@ import SkeletonRecipeDetail from '@/components/feedback/skeleton/SkeletonRecipeD
 const RecipeDetail = () => {
   const { open } = useModalStore();
   const { id } = useParams();
-  const { recipeItem, isPendingRecipeItem } = useGetRecipeItem(id ?? '');
-  const { addRecipe, isPendingAddRecipe } = useAddExternalRecipe();
+  const { recipeItem, isPendingRecipeItem } = useGetRecipeItem(id!);
+  const { addRecipe, isPendingAddRecipe } = useAddExternalRecipe(id!);
 
   if (!id) return <Navigate to={ROUTES.NOT_FOUND} />;
   if (isPendingRecipeItem || !recipeItem) {
