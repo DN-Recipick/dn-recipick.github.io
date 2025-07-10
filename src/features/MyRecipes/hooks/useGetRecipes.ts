@@ -16,9 +16,6 @@ const useGetRecipes = () => {
 
   useEffect(() => {
     const channel = supabaseClient.channel('recipe-state');
-    console.log('Effect');
-
-    // UPDATE 이벤트에서 state가 1이 될 때만 쿼리 무효화
     channel
       .on(
         'postgres_changes',
@@ -28,7 +25,6 @@ const useGetRecipes = () => {
           table: 'recipe',
         },
         (payload) => {
-          console.log('레시피 업데이트됨:', payload.new);
           if (payload.new.state === 1) {
             queryClient.invalidateQueries({ queryKey: QUERY_KEY_RECIPES });
           }
