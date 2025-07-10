@@ -17,6 +17,8 @@ const Header = () => {
     location.pathname === ROUTES.HOME ||
     location.pathname === ROUTES.SIGNIN ||
     location.pathname === ROUTES.SIGNUP;
+  const isRecipesPage = location.pathname === ROUTES.RECIPES;
+
   return (
     <header
       className={clsx(
@@ -30,7 +32,7 @@ const Header = () => {
         <Button
           className="btn-icon"
           icon={<IoMdArrowBack className="text-2xl" />}
-          onClick={() => navigate(-1)}
+          onClick={() => (isRecipesPage ? navigate(ROUTES.HOME) : navigate(-1))}
         />
       )}
       {isSignedIn ? (
