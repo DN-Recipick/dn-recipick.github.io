@@ -4,17 +4,8 @@ import { useFallbackStore } from '@/store/useFallbackStore';
 import { ROUTES } from '@/constants/routes';
 import { supabaseClient } from '@/lib/supabaseClient';
 import { customQueryClient } from '@/lib/queryClient';
-//TODO : 에러 처리 로직 수정
-//TODO : 수파베이스 인증 관련 반환 타입 통일
 //TODO : 에러 메세지 통한 토스트 메세지 추가
-//TODO : 스켈레톤 사이즈 수정 반복문 재사용성 고려
-//TODO : 컬리 모달 및 레시피 상세 스켈레톤 추가
 //TODO : 전체 디렉토리 구조 조정
-//TODO : 헤더 리렌더링 관련 수정, 헤더 스켈레톤? 추가 고려
-//TODO : getUser 에러 처리
-//TODO : ui 다듬기 !! 레시피 로딩 포함
-//TODO : 로그인, 회원가입 focus 추가 focus를 커스텀 훅 인자로 받지 말고 그냥 커스텀 훅 내부에서 사용
-//TODO : 로그인/회원가입 영역만 컴포넌트로 분리 + 로딩 핸들링 지금 pending 중일때 null 반환하고 있음 헤더에서
 
 export const handleAppError = async (error: unknown) => {
   const { show } = useFallbackStore.getState();
