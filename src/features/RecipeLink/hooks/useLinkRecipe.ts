@@ -2,14 +2,13 @@ import { queryKeys } from '@/constants/queryKeys';
 import { ROUTES } from '@/constants/routes';
 import useSetFormFocus from '@/features/MyRecipes/hooks/useSetFormFocus';
 import { addRecipe } from '@/features/RecipeLink/api';
-import type { FocusableField } from '@/types/ui';
 import { recipeLinkScheme, type RecipeLink } from '@/validation/recipeLink.schema';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 
-export const useLinkRecipe = ({ focusName }: { focusName: FocusableField }) => {
+export const useLinkRecipe = () => {
   const navigate = useNavigate();
   const queryClient = useQueryClient();
   const {
@@ -23,7 +22,7 @@ export const useLinkRecipe = ({ focusName }: { focusName: FocusableField }) => {
       url: '',
     },
   });
-  useSetFormFocus({ setFocus, focusName });
+  useSetFormFocus({ setFocus, focusName: 'url' });
 
   const { isPending, mutate } = useMutation({
     mutationFn: (formData: RecipeLink) => addRecipe(formData),
