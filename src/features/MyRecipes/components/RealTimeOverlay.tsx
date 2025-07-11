@@ -1,6 +1,6 @@
 const RealTimeOverlay = () => {
   return (
-    <div className="fixed top-17 left-1/2 -translate-x-1/2 z-50 w-full max-w-xl p-4">
+    <div className="fixed top-17 left-1/2 -translate-x-1/2 z-40 w-full max-w-xl p-4">
       <div
         className="p-3 rounded-md text-white text-sm text-center backdrop-blur-sm animate-gradient-move"
         style={{
