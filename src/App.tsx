@@ -1,10 +1,10 @@
 import { useThemeStore } from '@/store/useThemeStore';
 import { Outlet } from 'react-router-dom';
 import { useEffect } from 'react';
-import Modal from '@/components/shared/Modal';
+import Modal from '@/components/ui/Modal';
 import { useModalStore } from '@/store/useModalStore';
 import FullPageFallback from '@/components/feedback/fallback/FullPageFallback';
-import Header from '@/components/layout/Header';
+import Header from '@/components/ui/Header/Header';
 
 function App() {
   const initTheme = useThemeStore((state) => state.initTheme);

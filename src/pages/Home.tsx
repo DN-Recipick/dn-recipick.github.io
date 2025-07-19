@@ -1,6 +1,6 @@
-import Button from '@/components/shared/Button';
+import Button from '@/components/ui/Button';
 import { ROUTES } from '@/constants/routes';
-import RecipeLinkForm from '@/features/RecipeLink/components/RecipeLinkForm';
+import RecipeLinkForm from '@/features/addRecipe/components/RecipeLinkForm';
 import { Link } from 'react-router-dom';
 
 const Home = () => {

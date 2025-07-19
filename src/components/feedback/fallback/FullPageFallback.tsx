@@ -1,6 +1,6 @@
 import type { FallbackProps } from 'react-error-boundary';
 import { useFallbackStore } from '@/store/useFallbackStore';
-import Button from '@/components/shared/Button';
+import Button from '@/components/ui/Button';
 import { ROUTES } from '@/constants/routes';
 import { CustomError } from '@/lib/CustomError';
 import { useNavigate } from 'react-router-dom';

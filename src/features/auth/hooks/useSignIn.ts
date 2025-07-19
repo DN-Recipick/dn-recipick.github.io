@@ -1,7 +1,7 @@
 import { SUCCESS_MESSAGES } from '@/constants/messages';
 import { ROUTES } from '@/constants/routes';
 import { signin } from '@/features/auth/apis';
-import useSetFormFocus from '@/features/MyRecipes/hooks/useSetFormFocus';
+import useSetFormFocus from '@/features/recipes/hooks/useSetFormFocus';
 import type { SigninFormType } from '@/types/auth';
 import { showToast } from '@/utils/toast';
 import { signinSchema } from '@/validation/auth.schema';

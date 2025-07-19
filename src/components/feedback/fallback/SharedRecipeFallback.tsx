@@ -1,5 +1,5 @@
 import FullScreenLoader from '@/components/feedback/loading/FullScreenLoader';
-import { useShareUrl } from '@/hooks/useShareUrl';
+import { useShareUrl } from '@/components/hooks/useShareUrl';
 
 const SharedRecipeFallback = () => {
   useShareUrl();
