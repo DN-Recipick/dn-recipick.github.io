@@ -89,7 +89,7 @@ src/
 
 ### ⏳ 레시피 목록
 
-> 저장된 레시피 목록 화면, AI(서버)가 레시피를 분석 중일 때 오버레이를 통한 시각적 피드백 제공
+> 저장된 레시피 목록 화면, AI(서버)가 레시피를 분석 중일 때 오버레이를 통한 시각적 피드백 제공, 완료시 레시피 목록 갱신
 
 <div align="center">
   <img src="./screenshots/recipesWithOverlay.png" width="600" style="border:1px solid #ccc; border-radius:6px;" />
