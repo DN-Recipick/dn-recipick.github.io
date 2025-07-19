@@ -171,30 +171,22 @@ src/
 ### 1. 레포지토리 클론
 
 ```bash
-git clone https://github.com/your-username/recipick.git
-cd recipick/frontend
-```
+### 1. 레포지토리 클론
+git clone https://github.com/DN-Recipick/dn-recipick.github.io
+cd dn-recipick.github.io
 
 ### 2. 패키지 설치
-
-```bash
 pnpm install
-```
 
 ### 3. 환경 변수 설정
-
-.env.example 파일을 참고하여 .env 파일을 생성하고 다음과 같이 입력하세요:
-
-```bash
 cp .env.example .env
-VITE_API_SUPABASE=https://your-project-id.supabase.co
-VITE_API_SUPABASE_KEY=your-anon-key-here
-VITE_DEFAULT_TIMEOUT=5000
-```
+
+# .env 파일을 열어 다음 항목을 입력하거나 수정하세요:
+# VITE_API_SUPABASE=https://your-project-id.supabase.co
+# VITE_API_SUPABASE_KEY=your-anon-key-here
+# VITE_DEFAULT_TIMEOUT=5000
 
 ### 4. 개발 서버 실행
-
-```bash
 npm run dev
 ```
 
@@ -207,8 +199,6 @@ npm run dev
 </div>
 
 👉 위 이미지를 클릭하면 유튜브 영상으로 이동합니다.
-
-- 유튜브 링크: https://youtu.be/A8pz5E6wDIA
 
 ## 🎖 수상 이력
 
